@@ -36,6 +36,12 @@ read_trc <- function(filename) {
   # Correct column names
   colnames(datum) <- c("Frame", "Time", final_header)
 
+  #remove any columns with only NAs
+  na_columns <- sapply(datum, function(col) all(is.na(col)))
+
+  # Subset data frame to exclude columns that are all NA
+  datum = datum[ , !na_columns]
+
   # Return the data frame
   return(datum)
 }
