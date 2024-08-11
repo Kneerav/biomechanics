@@ -3,14 +3,14 @@
 #' Visualizes the 3D positions of markers at a specific time point using interactive 3D plots.
 #'
 #' @param data A dataframe containing time and marker positions with columns formatted as
-#'              `time`, `markername_X`, `markername_Y`, `markername_Z`.
+#'              `Time`, `markername_X`, `markername_Y`, `markername_Z`.
 #' @param selected_time The specific time point at which to visualize the marker positions.
 #'
 #' @return A `plotly` object representing the 3D scatter plot of marker positions.
 #'
 #' @import plotly
 #' @export
-visualize_3D_marker_position <- function(data, selected_time) {
+visualise_3D_marker_position <- function(data, selected_time) {
 
   # Check if the selected time exists in the dataframe
   if (!(selected_time %in% data$Time)) {
