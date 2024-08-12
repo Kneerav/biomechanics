@@ -5,7 +5,7 @@ Version: 0.1.0
 Author: Dr Nirav Maniar
 Maintainer: Dr Nirav Maniar <Nirav.Maniar@acu.edu.au>
 Description: This is a collection of useful functions when conducting biomechanical data analysis in R. Note that there are a series of functions the require the installation of the OpenSim python api.  
-    Use four spaces when indenting paragraphs within the Description.
+    This is a work in progress, so there may be an error or two. 
 License: GPL-2
 Encoding: UTF-8
 LazyData: true
