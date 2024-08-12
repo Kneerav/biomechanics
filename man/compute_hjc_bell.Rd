@@ -16,19 +16,19 @@ compute_hjc_bell(
 )
 }
 \arguments{
-\item{data}{A data frame containing marker trajectories with columns corresponding to 
+\item{data}{A data frame containing marker trajectories with columns corresponding to
 the names specified by the `LASIS_name`, `RASIS_name`, `LPSIS_name`, and `RPSIS_name` parameters.}
 
-\item{LASIS_name}{A string specifying the column name or pattern for the left anterior superior 
+\item{LASIS_name}{A string specifying the column name or pattern for the left anterior superior
 iliac spine markers in the data.}
 
-\item{RASIS_name}{A string specifying the column name or pattern for the right anterior superior 
+\item{RASIS_name}{A string specifying the column name or pattern for the right anterior superior
 iliac spine markers in the data.}
 
-\item{LPSIS_name}{A string specifying the column name or pattern for the left posterior superior 
+\item{LPSIS_name}{A string specifying the column name or pattern for the left posterior superior
 iliac spine markers in the data.}
 
-\item{RPSIS_name}{A string specifying the column name or pattern for the right posterior superior 
+\item{RPSIS_name}{A string specifying the column name or pattern for the right posterior superior
 iliac spine markers in the data.}
 
 \item{RHJC_name}{A string specifying the prefix for the right hip joint center column names in the output.}
@@ -39,7 +39,7 @@ iliac spine markers in the data.}
 If FALSE, returns a list containing the computed hip joint center data frames.}
 }
 \value{
-A data frame with appended hip joint center columns or a list of two data frames 
+A data frame with appended hip joint center columns or a list of two data frames
   containing the right and left hip joint centers.
 }
 \description{
