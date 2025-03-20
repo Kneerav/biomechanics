@@ -17,17 +17,3 @@ A 3-dimensional array of the same dimensions as `parent` and `child`, where each
 \description{
 This function calculates the rotation matrix between corresponding frames in two 3D arrays.
 }
-\examples{
-# Define two 3-dimensional arrays of rotation matrices
-parent <- array(c(
-  1, 0, 0, 0, 1, 0, 0, 0, 1,  # Frame 1
-  0, -1, 0, 1, 0, 0, 0, 0, 1,  # Frame 2
-  0, 0, 1, 0, 0, 0, -1, 0, 0   # Frame 3
-), dim = c(3, 3, 3))
-child <- array(c(
-  1, 0, 0, 0, 1, 0, 0, 0, 1,  # Frame 1
-  0, 1, 0, -1, 0, 0, 0, 0, 1,  # Frame 2
-  0, 0, -1, 0, 0, 0, 1, 0, 0   # Frame 3
-), dim = c(3, 3, 3))
-compute_rotation_between_frames(parent, child)
-}

@@ -15,12 +15,3 @@ A matrix of size N x 3, where each row contains the Euler angles (in degrees) co
 \description{
 This function computes Euler angles from a series of 3x3 rotation matrices.
 }
-\examples{
-# Create a 3x3x2 array of rotation matrices
-rotation_frames <- array(c(
-  1, 0, 0, 0, 1, 0, 0, 0, 1,  # Matrix 1
-  0, -1, 0, 1, 0, 0, 0, 0, 1,  # Matrix 2
-  0, 0, 1, 0, 0, 0, -1, 0, 0   # Matrix 3
-), dim = c(3, 3, 3))
-compute_joint_angles(rotation_frames)
-}

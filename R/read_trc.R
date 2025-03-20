@@ -7,9 +7,6 @@
 #' @importFrom utils read.delim
 #' @importFrom stats na.omit
 #' @export
-#' @examples
-#' # Read a sample TRC file
-#' df <- read_trc("example.trc")
 read_trc <- function(filename) {
 
   # Ensure utils package is available

@@ -15,7 +15,3 @@ A data frame containing the data from the file, starting from the line that incl
 \description{
 This function reads an OpenSim MOT or STO file into a data frame. The file is read after locating the line containing the word "time".
 }
-\examples{
-# Read a sample MOT or STO file
-df <- read_mot_sto("example.mot")
-}

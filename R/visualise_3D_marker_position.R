@@ -4,7 +4,7 @@
 #'
 #' @param data A dataframe containing time and marker positions with columns formatted as
 #'              `Time`, `markername_X`, `markername_Y`, `markername_Z`.
-#' @param selected_time The specific time point at which to visualize the marker positions.
+#' @param selected_time Numeric value indicating the specific time point at which to visualize the marker positions.
 #'
 #' @return A `plotly` object representing the 3D scatter plot of marker positions.
 #'

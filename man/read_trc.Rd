@@ -15,7 +15,3 @@ A data frame with columns for frame number, time, and marker coordinates (X, Y, 
 \description{
 This function reads a TRC (marker trajectory) file and returns it as a data frame. The function processes the header to extract marker names and adjusts column names accordingly.
 }
-\examples{
-# Read a sample TRC file
-df <- read_trc("example.trc")
-}

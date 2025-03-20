@@ -1,6 +1,6 @@
-#' Compute Hip Joint Center using Bell and Brand's Method
+#' Compute Hip Joint Center using Harrington's of Bell and Brand's Method
 #'
-#' This function computes the right and left hip joint centers based on Bell and Brand's formula.
+#' This function computes the right and left hip joint centers based on Harrington's formula.
 #'
 #' @param data A data frame containing marker trajectories with columns corresponding to
 #'   the names specified by the `LASIS_name`, `RASIS_name`, `LPSIS_name`, and `RPSIS_name` parameters.
@@ -14,6 +14,7 @@
 #'   iliac spine markers in the data.
 #' @param RHJC_name A string specifying the prefix for the right hip joint center column names in the output.
 #' @param LHJC_name A string specifying the prefix for the left hip joint center column names in the output.
+#' @param method A string specifying the method to use for calculations. Options are "harrington" or "bell". Default is "harrington".
 #' @param append Logical. If TRUE, appends the computed hip joint center columns to the original data frame.
 #'   If FALSE, returns a list containing the computed hip joint center data frames.
 #' @return A data frame with appended hip joint center columns or a list of two data frames
@@ -22,19 +23,20 @@
 #' @importFrom dplyr select contains
 #' @importFrom magrittr %>%
 #' @export
-compute_hjc_bell <- function(data,
+compute_hjc_regression <- function(data,
                                    LASIS_name = "L.ASIS",
                                    RASIS_name = "R.ASIS",
                                    LPSIS_name = "L.PSIS",
                                    RPSIS_name = "R.PSIS",
                                    RHJC_name = "R.HJC",
                                    LHJC_name = "L.HJC",
+                                   method = "harrington",
                                    append = TRUE) {
 
   # Load required libraries
-  library(pracma)
-  library(dplyr)
-  library(magrittr)
+  require(pracma)
+  require(dplyr)
+  require(magrittr)
 
   # Convert marker data to matrix and transpose as needed
   LASIS <- data %>% select(contains(LASIS_name)) %>% as.matrix() %>% t()
@@ -77,13 +79,21 @@ compute_hjc_bell <- function(data,
     PW <- sqrt(sum((RASIS[, time_i] - LASIS[, time_i])^2))
     PD <- sqrt(sum((SACRUM - OP)^2))
 
-    # Bell and Brand formulae (for right side)
-    diff_ap <- -0.19*PW
-    diff_v <- -0.3*PW
-    diff_ml <- 0.36*PW
-
-    vett_diff_pelvis_sx <- c(-diff_ml, diff_ap, diff_v, 1)
-    vett_diff_pelvis_dx <- c(diff_ml, diff_ap, diff_v, 1)
+    # Harrington or Bell formulae
+    if (method == "harrington") {
+      diff_ap <- -0.24 * PD - 9.9
+      diff_v <- -0.30 * PW - 10.9
+      diff_ml <- 0.33 * PW + 7.3
+    } else if (method == "bell") {
+      diff_ap <- -0.19 * PW
+      diff_v <- -0.3 * PW
+      diff_ml <- 0.36 * PW
+    } else {
+      stop("Invalid method specified. Choose either 'harrington' or 'bell'.")
+    }
+    
+    vett_diff_pelvis_sx <- c(-diff_ml, diff_ap, diff_v, 1) #left
+    vett_diff_pelvis_dx <- c(diff_ml, diff_ap, diff_v, 1) #right
 
     # HJC in pelvis CS (4x4)
     rhjc_pelvis <- OPB + vett_diff_pelvis_dx
@@ -94,7 +104,7 @@ compute_hjc_bell <- function(data,
     LHJC[, time_i] <- (pelvis[1:3, 1:3] %*% lhjc_pelvis[1:3]) + OB
   }
 
-  # Transpose results
+  # Transpose results to match MATLAB output format
   RHJC_df <- t(RHJC) %>% as.data.frame() %>% `colnames<-`(paste0(RHJC_name, "_", c("X", "Y", "Z")))
   LHJC_df <- t(LHJC)  %>% as.data.frame() %>% `colnames<-`(paste0(LHJC_name, "_", c("X", "Y", "Z")))
 
