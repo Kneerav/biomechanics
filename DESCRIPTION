@@ -23,4 +23,5 @@ Imports:
     reticulate (>= 1.27),
     RSpincalc (>= 1.0.2),
     signal (>= 0.7.7),
-    stringr (>= 1.5.0)
+    stringr (>= 1.5.0),
+    XML (>= 3.99.0.13)
