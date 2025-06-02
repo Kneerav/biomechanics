@@ -56,7 +56,7 @@ visualize_3D_marker_frame_position <- function(data, selected_frame, reference_f
       zaxis = list(title = 'Vertical', range = c(axis_min, axis_max)),
       aspectmode = 'cube'
     ),
-    title = paste("3D Marker Positions at Time =", selected_time))
+    title = paste("3D Marker Positions at Time =", selected_frame))
 
   # Add reference frame if provided
   if (!is.null(reference_frame)) {
