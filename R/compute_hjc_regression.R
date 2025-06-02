@@ -19,6 +19,9 @@
 #'   If FALSE, returns a list containing the computed hip joint center data frames.
 #' @return A data frame with appended hip joint center columns or a list of two data frames
 #'   containing the right and left hip joint centers.
+#' @references
+#' Bell AL, Pederson DR, and Brand RA (1989) Prediction of hip joint center location from external landmarks. Human Movement Science. 8:3-16: Bell AL, Pedersen DR, Brand RA (1990) A Comparison of the Accuracy of Several hip Center Location Prediction Methods. J Biomech. 23, 617-621.
+#' Harrington ME, Zavatsky AB, Lawson SE, Yuan Z, Theologis TN.(2007) Prediction of the hip joint centre in adults, children, and patients with cerebral palsy based on magnetic resonance imaging. J Biomech. 2007;40(3):595-602. Epub 2006 Apr 3.
 #' @importFrom pracma cross
 #' @importFrom dplyr select contains
 #' @importFrom magrittr %>%
@@ -91,7 +94,7 @@ compute_hjc_regression <- function(data,
     } else {
       stop("Invalid method specified. Choose either 'harrington' or 'bell'.")
     }
-    
+
     vett_diff_pelvis_sx <- c(-diff_ml, diff_ap, diff_v, 1) #left
     vett_diff_pelvis_dx <- c(diff_ml, diff_ap, diff_v, 1) #right
 

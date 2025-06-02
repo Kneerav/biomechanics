@@ -4,7 +4,7 @@
 #' from a dataset. It can also optionally display a reference frame.
 #'
 #' @param data A data frame containing marker data, including columns with '_X', '_Y', and '_Z' suffixes for marker positions.
-#' @param selected_time A numeric value representing the time point at which to visualize the markers.
+#' @param selected_frame A numeric value representing the time frame at which to visualize the markers.
 #' @param reference_frame A 3x3 matrix representing a reference frame (optional). Each column should represent an axis of the reference frame.
 #' @param origin A 1x3 numeric vector representing the origin point of the reference frame (optional).
 #'
@@ -12,21 +12,21 @@
 #'
 #' @import plotly
 #' @export
-visualize_3D_marker_frame_position <- function(data, selected_time, reference_frame, origin) {
+visualize_3D_marker_frame_position <- function(data, selected_frame, reference_frame, origin) {
 
-  # Check if the selected time exists in the dataframe
-  if (!(selected_time %in% data$Time)) {
-    stop("Selected time point not found in the dataframe.")
+  # Check if the selected frame exists in the dataframe
+  if (selected_frame < 1 || selected_frame > nrow(data)) {
+    stop("Selected frame number is out of bounds.")
   }
 
   require(plotly)
 
-  # Filter data for the selected time point
-  data_at_time <- data[data$Time == selected_time, ]
+  # Filter data for the selected frame (row)
+  data_at_frame <- data[selected_frame, ]
 
   # Extract marker columns
   marker_cols <- grep("_X$|_Y$|_Z$", colnames(data), value = TRUE)
-  marker_data <- data_at_time[, marker_cols]
+  marker_data <- data_at_frame[, marker_cols]
 
   # Reshape data for plotting
   markers <- unique(gsub("_X|_Y|_Z", "", marker_cols))

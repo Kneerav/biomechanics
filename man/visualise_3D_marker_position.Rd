@@ -4,13 +4,13 @@
 \alias{visualise_3D_marker_position}
 \title{Visualize 3D Marker Position}
 \usage{
-visualise_3D_marker_position(data, selected_time)
+visualise_3D_marker_position(data, selected_frame)
 }
 \arguments{
 \item{data}{A dataframe containing time and marker positions with columns formatted as
 `Time`, `markername_X`, `markername_Y`, `markername_Z`.}
 
-\item{selected_time}{Numeric value indicating the specific time point at which to visualize the marker positions.}
+\item{selected_frame}{Numeric value indicating the frame visualize the marker positions.}
 }
 \value{
 A `plotly` object representing the 3D scatter plot of marker positions.

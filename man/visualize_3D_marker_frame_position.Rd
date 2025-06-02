@@ -6,7 +6,7 @@
 \usage{
 visualize_3D_marker_frame_position(
   data,
-  selected_time,
+  selected_frame,
   reference_frame,
   origin
 )
@@ -14,7 +14,7 @@ visualize_3D_marker_frame_position(
 \arguments{
 \item{data}{A data frame containing marker data, including columns with '_X', '_Y', and '_Z' suffixes for marker positions.}
 
-\item{selected_time}{A numeric value representing the time point at which to visualize the markers.}
+\item{selected_frame}{A numeric value representing the time frame at which to visualize the markers.}
 
 \item{reference_frame}{A 3x3 matrix representing a reference frame (optional). Each column should represent an axis of the reference frame.}
 

@@ -4,27 +4,27 @@
 #'
 #' @param data A dataframe containing time and marker positions with columns formatted as
 #'              `Time`, `markername_X`, `markername_Y`, `markername_Z`.
-#' @param selected_time Numeric value indicating the specific time point at which to visualize the marker positions.
+#' @param selected_frame Numeric value indicating the frame visualize the marker positions.
 #'
 #' @return A `plotly` object representing the 3D scatter plot of marker positions.
 #'
 #' @import plotly
 #' @export
-visualise_3D_marker_position <- function(data, selected_time) {
+visualise_3D_marker_position <- function(data, selected_frame) {
 
-  # Check if the selected time exists in the dataframe
-  if (!(selected_time %in% data$Time)) {
-    stop("Selected time point not found in the dataframe.")
+  # Check if the selected frame exists in the dataframe
+  if (selected_frame < 1 || selected_frame > nrow(data)) {
+    stop("Selected frame number is out of bounds.")
   }
 
   require(plotly)
 
-  # Filter data for the selected time point
-  data_at_time <- data[data$Time == selected_time, ]
+  # Filter data for the selected frame (row)
+  data_at_frame <- data[selected_frame, ]
 
   # Extract marker columns
   marker_cols <- grep("_X$|_Y$|_Z$", colnames(data), value = TRUE)
-  marker_data <- data_at_time[, marker_cols]
+  marker_data <- data_at_frame[, marker_cols]
 
   # Reshape data for plotting
   markers <- unique(gsub("_X|_Y|_Z", "", marker_cols))
@@ -53,7 +53,7 @@ visualise_3D_marker_position <- function(data, selected_time) {
                hoverinfo = 'text+x+z+y',
                mode = "markers",
                text = ~Marker[plot_data$Axis == "X"],
-               marker = list(size = 3, color = "dodgerblue4")) %>%
+               marker = list(size = 3, color = "#024950")) %>%
     layout(scene = list(
       xaxis = list(title = 'Anterior-Posterior', range = c(axis_min, axis_max)),
       yaxis = list(title = 'Mediolateral', range = c(axis_max, axis_min)),
