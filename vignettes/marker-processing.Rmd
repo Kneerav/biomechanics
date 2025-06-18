@@ -40,7 +40,7 @@ First, we read a .trc file.
 library(dplyr)
 
 #read in trc file, assuming that this is raw and not rotated
-df = read_trc("./data/static_01_z.trc")
+df = read_trc("./data/static_z_up.trc")
 
 ```
 
@@ -152,6 +152,6 @@ Finally, we can write our processed marker data to file for subsequent analysis.
 
 ```{r write, echo=T, eval=F}
 #then write to file
-write_trc(df_processed, unit = "mm", "static_processed.trc")
+write_trc(df_processed, unit = "mm", "./data/static_processed.trc")
 ```
 
