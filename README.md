@@ -1,12 +1,10 @@
 This package provides functions to perform biomechanics analysis in the R programming language. 
 
-# Install 
+# Basic installation 
 
-To install, use the following:
+Basic installation can be done via the `install_github()` function from the `remotes` package.
 
 ```{r}
-#install the remotes package if you don't akready have it
-install.packages("remotes")
 
 #install the package
 remotes::install_github("Kneerav/biomechanics")
@@ -18,7 +16,8 @@ Once installed, you can load the library and use the various functions.
 library(biomechanics)
 ```
 
-# Full setup
+Full documentation and vignettes are hosted here: https://kneerav.github.io/biomechanics/index.html
 
-Some functions use the OpenSim api, and therefore require installation of reticulate package, and the opensim conda package in an appropriate environment. Please see the vignettes for further information on how to do this. 
+# Full functionality
 
+Some functions use the OpenSim api (https://simtk.org/projects/opensim). To enable these, we need to setup and appropriate python environment, install the opensim conda package, and use the `reticulate` package to access them in R. Please see the setting up vignette(https://kneerav.github.io/biomechanics/articles/setting-up.html) for further information on how to do this. 
