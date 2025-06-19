@@ -1,4 +1,8 @@
-This is a work in progress. Some of the functions have not been fully tested, and there are many others that will be added in the near future. If you'd like to use it (as is), installation instructions are below. 
+This package provides functions to perform biomechanics analysis in the R programming language. 
+
+# Install 
+
+To install, use the following:
 
 ```{r}
 #install the remotes package if you don't akready have it
@@ -14,7 +18,7 @@ Once installed, you can load the library and use the various functions.
 library(biomechanics)
 ```
 
-IMPORTANT
+# Full setup
 
-So functions use the OpenSim api, and therefore require installation of reticulate package, and the opensim conda package in an appropriate environment. 
+Some functions use the OpenSim api, and therefore require installation of reticulate package, and the opensim conda package in an appropriate environment. Please see the vignettes for further information on how to do this. 
 

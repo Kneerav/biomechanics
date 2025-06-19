@@ -1,0 +1,8 @@
+pandoc: 2.19.2
+pkgdown: 2.0.7
+pkgdown_sha: ~
+articles:
+  marker-processing: marker-processing.html
+  setting-up: setting-up.html
+last_built: 2025-06-19T03:18Z
+
