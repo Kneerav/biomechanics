@@ -5,8 +5,8 @@
 #' column for each joint (e.g., hip_r, hip_l).. By default, this summing excludes any columns that contain the
 #' word "beta" (i.e., from the couple patellofemoral joint).
 #'
-#' @param inverse_dynamics_df A dataframe containing the inverse dynamics data (e.g., from an "inverse_dynamics.sto" file).
-#' @param joint_vel_df A dataframe containing the joint velocities (e.g., from an "Model_scaled_Kinematics_u.sto" file).
+#' @param inverse_dynamics_file A string specifying the file path for the inverse dynamics data (e.g., "inverse_dynamics.sto").
+#' @param joint_vel_file A string specifying the file path for the joint velocities (e.g., "Model_scaled_Kinematics_u.sto").
 #' @param file_out A string specifying the output file path for the joint power results (e.g., "joint_power.sto").
 #' @param in_degrees A logical indicating whether the input joint velocities are in degrees (default is TRUE). If TRUE, velocities are converted to radians.
 #' @param sum_joints A character vector of joints to sum (e.g., c("hip", "arm")). Default is c("hip", "arm").
@@ -21,8 +21,8 @@
 #' @import pracma
 #' @importFrom stringr str_replace_all
 #' @importFrom stringr str_detect
-analyse_joint_power = function(inverse_dynamics_df,
-                               joint_vel_df,
+analyse_joint_power_file = function(inverse_dynamics_file = "inverse_dynamics.sto",
+                               joint_vel_file = "Model_scaled_Kinematics_u.sto",
                                file_out = "joint_power.sto",
                                in_degrees = TRUE,
                                sum_joints = c("hip", "arm"),
@@ -44,8 +44,8 @@ analyse_joint_power = function(inverse_dynamics_df,
   require(pracma)
 
   #get data
-  moments = inverse_dynamics_df
-  vel = joint_vel_df
+  moments = read_mot_sto(inverse_dynamics_file)
+  vel = read_mot_sto(joint_vel_file)
 
   #change column names for moment
   colnames(moments) = stringr::str_replace_all(colnames(moments), "_moment", "")

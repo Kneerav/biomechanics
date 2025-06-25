@@ -8,7 +8,7 @@ analyse_angular_momentum_com(
   model_file = "Model_SCALED.osim",
   body_pos_file = "Model_scaled_BodyKinematics_pos_global.sto",
   body_vel_file = "Model_scaled_BodyKinematics_vel_global.sto",
-  file_out = "angular_momentum.sto",
+  file_output = "angular_momentum.sto",
   in_degrees = TRUE,
   write_file = TRUE,
   return_object = FALSE
@@ -21,7 +21,7 @@ analyse_angular_momentum_com(
 
 \item{body_vel_file}{A string specifying the body velocity file (in .sto format).}
 
-\item{file_out}{A string specifying the output file for the angular momentum results.}
+\item{file_output}{A string specifying the output file for the angular momentum results.}
 
 \item{in_degrees}{Logical; if TRUE, input angles and velocities are assumed to be in degrees. Defaults to TRUE.}
 

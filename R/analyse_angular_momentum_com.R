@@ -6,7 +6,7 @@
 #' @param model_file A string specifying the model file (in .osim format).
 #' @param body_pos_file A string specifying the body position file (in .sto format).
 #' @param body_vel_file A string specifying the body velocity file (in .sto format).
-#' @param file_out A string specifying the output file for the angular momentum results.
+#' @param file_output A string specifying the output file for the angular momentum results.
 #' @param in_degrees Logical; if TRUE, input angles and velocities are assumed to be in degrees. Defaults to TRUE.
 #' @param write_file Logical; if TRUE, the function writes results to a file. Defaults to TRUE.
 #' @param return_object Logical; if TRUE, the function returns the computed angular momentum as a data frame.
@@ -21,7 +21,7 @@
 analyse_angular_momentum_com = function(model_file = "Model_SCALED.osim",
                                         body_pos_file = "Model_scaled_BodyKinematics_pos_global.sto",
                                         body_vel_file = "Model_scaled_BodyKinematics_vel_global.sto",
-                                        file_out = "angular_momentum.sto",
+                                        file_output = "angular_momentum.sto",
                                         in_degrees = TRUE,
                                         write_file = TRUE,
                                         return_object = FALSE){
@@ -133,7 +133,7 @@ analyse_angular_momentum_com = function(model_file = "Model_SCALED.osim",
 
   #write to file
   if(write_file == TRUE){
-    write_mot_sto(full_df, "Angular momentum", "no", file_out)
+    write_mot_sto(full_df, "Angular momentum", "no", file_output)
   }
 
   #return object
