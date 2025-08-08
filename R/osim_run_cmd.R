@@ -1,5 +1,3 @@
-#test opensim visualiser
-
 #' Run OpenSim Command Line Tool
 #'
 #' This function executes an OpenSim command line tool using `opensim-cmd`.
