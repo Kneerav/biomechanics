@@ -50,7 +50,7 @@ analyze_frequency_content = function(data,
                                plot = FALSE) %>%
 
       #convert to df
-      as.data.frame(signal_spectrum) %>%
+      as.data.frame() %>%
 
       #rename the columns
       `colnames<-`(c("Frequencies_kHz", "Magnitude")) %>%

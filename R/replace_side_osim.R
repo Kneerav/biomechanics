@@ -13,7 +13,8 @@
 #' @export
 replace_side_torque_osim = function(model_input_file = "Baseline_markers.osim",
                             model_output_file = "Baseline_markers_removed.osim",
-                            side = "l"){
+                            side = "l",
+							optimal_force = 10){
 
   #Check if reticulate is installed
   if (!requireNamespace("reticulate", quietly = TRUE)) {
@@ -47,8 +48,18 @@ replace_side_torque_osim = function(model_input_file = "Baseline_markers.osim",
     #adjust iterator
     i_L = i - 1L
 
-    #get current muscle name
-    act_name_i = forceset$get(i_L)$getName()
+    #get actuator
+	act_i = forceset$get(i_L)
+	
+	#get current muscle name
+	act_name_i = act_i$getName()
+	
+	#num properties (to detect torque or force actuators, not the most robust)
+	num_properties = act_i$getNumProperties()
+	
+	if(num_properties < 20){
+	next
+	}
 
     muscle_list[[i]] = act_name_i
 
@@ -103,7 +114,9 @@ replace_side_torque_osim = function(model_input_file = "Baseline_markers.osim",
 
     coordActuator = osim$CoordinateActuator()
     coordActuator$setName(paste0(coord_vec_side[i], "_torque"))
-    coordActuator$setOptimalForce(1000)
+	coordActuator$set_max_control(Inf)
+	coordActuator$set_min_control(-Inf)
+    coordActuator$setOptimalForce(optimal_force)
 
     coord_i = coordset$get(coord_vec_side[i])
     coordActuator$setCoordinate(coord_i)

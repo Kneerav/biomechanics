@@ -7,7 +7,8 @@
 replace_side_torque_osim(
   model_input_file = "Baseline_markers.osim",
   model_output_file = "Baseline_markers_removed.osim",
-  side = "l"
+  side = "l",
+  optimal_force = 10
 )
 }
 \arguments{
