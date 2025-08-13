@@ -10,11 +10,6 @@
 osim_run_cmd = function(opensim_path = 'C:/"OpenSim 4.5"/bin',
                         setup_file){
 
-  # Check if the OpenSim path exists
-  if (!dir.exists(opensim_path)) {
-    stop("The specified OpenSim path does not exist.")
-  }
-
   # Check if the setup file exists
   if (!file.exists(setup_file)) {
     stop("The specified setup file does not exist.")

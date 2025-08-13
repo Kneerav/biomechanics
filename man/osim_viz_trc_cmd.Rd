@@ -6,13 +6,13 @@
 \usage{
 osim_viz_trc_cmd(
   opensim_path = "C:/\\"OpenSim 4.5\\"/bin",
-  trc_path = "marker.trc"
+  trc_file_path = "marker.trc"
 )
 }
 \arguments{
 \item{opensim_path}{A character string specifying the path to the OpenSim bin directory.}
 
-\item{trc_path}{A character string specifying the path to the TRC file containing the marker data (.trc).}
+\item{trc_file_path}{A character string specifying the path to the TRC file containing the marker data (.trc).}
 }
 \value{
 The result of running the OpenSim command.

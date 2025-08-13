@@ -12,11 +12,6 @@ osim_viz_motion_cmd = function(opensim_path = 'C:/"OpenSim 4.5"/bin',
                                motion_file_path = "ik.mot",
                                model_file_path = "Trunk_pelvis_LL.osim"){
 
-  # Check if the OpenSim path exists
-  if (!dir.exists(opensim_path)) {
-    stop("The specified OpenSim path does not exist.")
-  }
-
   # Check if the motion file exists
   if (!file.exists(motion_file_path)) {
     stop("The specified motion file does not exist.")

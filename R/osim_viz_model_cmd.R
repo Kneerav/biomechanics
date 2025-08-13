@@ -10,11 +10,6 @@
 osim_viz_model_cmd = function(opensim_path = 'C:/"OpenSim 4.5"/bin',
                               model_file_path = "Trunk_pelvis_LL.osim"){
 
-  # Check if the OpenSim path exists
-  if (!dir.exists(opensim_path)) {
-    stop("The specified OpenSim path does not exist.")
-  }
-
   # Check if the model file exists
   if (!file.exists(model_file_path)) {
     stop("The specified model file does not exist.")
