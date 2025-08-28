@@ -13,9 +13,9 @@ compute_strain(
 )
 }
 \arguments{
-\item{length_df_dynamic}{A data frame containing dynamic muscle length data. May include a "time" column.}
+\item{length_df_dynamic}{A data frame containing dynamic muscle length data. Assumes first column is "time".}
 
-\item{length_df_reference}{A single-row data frame containing reference muscle lengths. May or may not include a "time" column.}
+\item{length_df_reference}{A single-row data frame containing reference muscle lengths. Assumes first column is "time".}
 
 \item{file_output}{Character string specifying the output filename for the strain .sto file.}
 

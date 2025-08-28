@@ -1,4 +1,4 @@
-#' Analyze Frequency Content of a Data Frame
+#' Analyse Frequency Content of a Data Frame
 #'
 #' Computes the frequency spectrum of numerical columns in a data frame
 #' using the Fast Fourier Transform (via `seewave::spec()`).
@@ -20,7 +20,7 @@
 #' @importFrom dplyr bind_rows
 #' @importFrom dplyr %>%
 #' @export
-analyze_frequency_content = function(data,
+analyse_frequency_content = function(data,
                                      exclude_cols = c(1,2),
                                      sample_rate = 200){
 

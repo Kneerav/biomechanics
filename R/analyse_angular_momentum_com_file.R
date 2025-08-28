@@ -4,8 +4,8 @@
 #' and velocity kinematics over time, returning the results or saving them to a file.
 #'
 #' @param model_file A string specifying the model file (in .osim format).
-#' @param body_pos_df A data.frame containing the body position data (usually read from .sto format).
-#' @param body_vel_df A data.frame containing the body velocity data (usually read from .sto format).
+#' @param body_pos_file A string specifying the body position file (in .sto format).
+#' @param body_vel_file A string specifying the body velocity file (in .sto format).
 #' @param file_output A string specifying the output file for the angular momentum results.
 #' @param in_degrees Logical; if TRUE, input angles and velocities are assumed to be in degrees. Defaults to TRUE.
 #' @param write_file Logical; if TRUE, the function writes results to a file. Defaults to TRUE.
@@ -19,8 +19,8 @@
 #'
 #' @export
 analyse_angular_momentum_com = function(model_file = "Model_SCALED.osim",
-                                        body_pos_df = pos_df,
-                                        body_vel_df = vel_df,
+                                        body_pos_file = "Model_scaled_BodyKinematics_pos_global.sto",
+                                        body_vel_file = "Model_scaled_BodyKinematics_vel_global.sto",
                                         file_output = "angular_momentum.sto",
                                         in_degrees = TRUE,
                                         write_file = TRUE,
@@ -50,8 +50,8 @@ analyse_angular_momentum_com = function(model_file = "Model_SCALED.osim",
   nbods = bodyset$getSize()
 
   #get body kinematics
-  pos = body_pos_df
-  vel = body_vel_df
+  pos = read_mot_sto(body_pos_file)
+  vel = read_mot_sto(body_vel_file)
 
   #get centre of mass
   pos_com = pos %>% select(center_of_mass_X, center_of_mass_Y, center_of_mass_Z)

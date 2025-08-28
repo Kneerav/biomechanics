@@ -1,6 +1,6 @@
 ---
 title: "Setting up for biomechanical analysis"
-author: "Dr Nirav Maniar"
+author: "Nirav Maniar"
 output: rmarkdown::html_vignette
 vignette: >
   %\VignetteIndexEntry{setting-up}

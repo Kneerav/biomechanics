@@ -1,6 +1,6 @@
 ---
 title: "Processing 3D marker data"
-author: "Dr Nirav Maniar"
+author: "Nirav Maniar"
 output: rmarkdown::html_vignette
 vignette: >
   %\VignetteIndexEntry{marker-processing}
