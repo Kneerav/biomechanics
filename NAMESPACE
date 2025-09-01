@@ -3,6 +3,7 @@
 export(Time_normalise)
 export(adjust_reserve_actuators_osim)
 export(analyse_angular_momentum_com)
+export(analyse_angular_momentum_com_file)
 export(analyse_frequency_content)
 export(analyse_joint_power)
 export(analyse_joint_power_file)

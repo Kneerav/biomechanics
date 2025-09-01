@@ -107,7 +107,7 @@ analyse_angular_momentum_com = function(model_file = "Model_SCALED.osim",
       #get rotation matrix. Replaced scipy dependency
       #rot_i = scipy$spatial$transform$Rotation$from_rotvec(theta3, degrees=FALSE)
       rot_i = create_rotation_matrix_from_vector(theta3, in_degrees=FALSE)
-      rotmat = rot_i$as_matrix()
+      rotmat = rot_i
 
       # transform I_i into inertial coords via R * I_i * R_inv
       I_inertial = rotmat %*% (I_i %*% pracma::inv(rotmat))
@@ -129,7 +129,7 @@ analyse_angular_momentum_com = function(model_file = "Model_SCALED.osim",
   }
 
   #create data frame
-  full_df = do.call("cbind.data.frame", full)
+  full_df = data.frame(time = pos$time, do.call("cbind.data.frame", full))
 
   #write to file
   if(write_file == TRUE){

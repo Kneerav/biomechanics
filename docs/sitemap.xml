@@ -19,10 +19,31 @@
     <loc>/index.html</loc>
   </url>
   <url>
+    <loc>/reference/adjust_reserve_actuators_osim.html</loc>
+  </url>
+  <url>
     <loc>/reference/analyse_angular_momentum_com.html</loc>
   </url>
   <url>
+    <loc>/reference/analyse_angular_momentum_com_file.html</loc>
+  </url>
+  <url>
+    <loc>/reference/analyse_frequency_content.html</loc>
+  </url>
+  <url>
     <loc>/reference/analyse_joint_power.html</loc>
+  </url>
+  <url>
+    <loc>/reference/analyse_joint_power_file.html</loc>
+  </url>
+  <url>
+    <loc>/reference/analyse_muscle_power.html</loc>
+  </url>
+  <url>
+    <loc>/reference/analyse_muscle_power_file.html</loc>
+  </url>
+  <url>
+    <loc>/reference/append_local_marker.html</loc>
   </url>
   <url>
     <loc>/reference/compute_cutoff_correction.html</loc>
@@ -40,6 +61,9 @@
     <loc>/reference/compute_derivative_df.html</loc>
   </url>
   <url>
+    <loc>/reference/compute_frame_generic.html</loc>
+  </url>
+  <url>
     <loc>/reference/compute_frame_orientation.html</loc>
   </url>
   <url>
@@ -52,10 +76,19 @@
     <loc>/reference/compute_jc_mid.html</loc>
   </url>
   <url>
+    <loc>/reference/compute_jc_score.html</loc>
+  </url>
+  <url>
     <loc>/reference/compute_joint_angles.html</loc>
   </url>
   <url>
     <loc>/reference/compute_moment_arm_curve.html</loc>
+  </url>
+  <url>
+    <loc>/reference/compute_muscle_length_anatomical.html</loc>
+  </url>
+  <url>
+    <loc>/reference/compute_muscle_moment.html</loc>
   </url>
   <url>
     <loc>/reference/compute_muscle_volume_scale_factor.html</loc>
@@ -67,6 +100,9 @@
     <loc>/reference/compute_rotation_between_frames.html</loc>
   </url>
   <url>
+    <loc>/reference/compute_strain.html</loc>
+  </url>
+  <url>
     <loc>/reference/compute_work.html</loc>
   </url>
   <url>
@@ -74,6 +110,9 @@
   </url>
   <url>
     <loc>/reference/create_rotation_matrix_from_vector.html</loc>
+  </url>
+  <url>
+    <loc>/reference/extract_markerset_info.html</loc>
   </url>
   <url>
     <loc>/reference/filter_lowpass_pad_df.html</loc>
@@ -89,6 +128,18 @@
   </url>
   <url>
     <loc>/reference/index.html</loc>
+  </url>
+  <url>
+    <loc>/reference/osim_run_cmd.html</loc>
+  </url>
+  <url>
+    <loc>/reference/osim_viz_model_cmd.html</loc>
+  </url>
+  <url>
+    <loc>/reference/osim_viz_motion_cmd.html</loc>
+  </url>
+  <url>
+    <loc>/reference/osim_viz_trc_cmd.html</loc>
   </url>
   <url>
     <loc>/reference/prescribe_motion_osim.html</loc>
@@ -130,10 +181,25 @@
     <loc>/reference/time_normalise.html</loc>
   </url>
   <url>
+    <loc>/reference/update_max_contraction_velocity_osim.html</loc>
+  </url>
+  <url>
     <loc>/reference/update_muscle_colours_osim.html</loc>
   </url>
   <url>
+    <loc>/reference/visualise_2D_marker_position.html</loc>
+  </url>
+  <url>
+    <loc>/reference/visualise_2D_segment_position.html</loc>
+  </url>
+  <url>
+    <loc>/reference/visualise_3D_frame.html</loc>
+  </url>
+  <url>
     <loc>/reference/visualise_3D_marker_position.html</loc>
+  </url>
+  <url>
+    <loc>/reference/visualise_3D_segment_position.html</loc>
   </url>
   <url>
     <loc>/reference/visualize_3D_marker_frame_position.html</loc>
