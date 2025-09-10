@@ -103,6 +103,9 @@
     <loc>/reference/compute_strain.html</loc>
   </url>
   <url>
+    <loc>/reference/compute_torque_com.html</loc>
+  </url>
+  <url>
     <loc>/reference/compute_work.html</loc>
   </url>
   <url>
@@ -163,6 +166,12 @@
     <loc>/reference/resample.html</loc>
   </url>
   <url>
+    <loc>/reference/rigid_body_transformed_markers_svd.html</loc>
+  </url>
+  <url>
+    <loc>/reference/rigid_transform_svd.html</loc>
+  </url>
+  <url>
     <loc>/reference/rotate_coords.html</loc>
   </url>
   <url>
@@ -170,6 +179,45 @@
   </url>
   <url>
     <loc>/reference/rotate_osim_table.html</loc>
+  </url>
+  <url>
+    <loc>/reference/setup_body_kinematics_xml.html</loc>
+  </url>
+  <url>
+    <loc>/reference/setup_external_loads_xml.html</loc>
+  </url>
+  <url>
+    <loc>/reference/setup_induced_acceleration_rolling_xml.html</loc>
+  </url>
+  <url>
+    <loc>/reference/setup_inverse_dynamics_xml.html</loc>
+  </url>
+  <url>
+    <loc>/reference/setup_inverse_kinematics_xml.html</loc>
+  </url>
+  <url>
+    <loc>/reference/setup_joint_reaction_osim.html</loc>
+  </url>
+  <url>
+    <loc>/reference/setup_joint_reaction_xml.html</loc>
+  </url>
+  <url>
+    <loc>/reference/setup_kinematic_analysis_osim.html</loc>
+  </url>
+  <url>
+    <loc>/reference/setup_kinematic_analysis_xml.html</loc>
+  </url>
+  <url>
+    <loc>/reference/setup_muscle_analysis_osim.html</loc>
+  </url>
+  <url>
+    <loc>/reference/setup_muscle_analysis_xml.html</loc>
+  </url>
+  <url>
+    <loc>/reference/setup_scale_xml.html</loc>
+  </url>
+  <url>
+    <loc>/reference/setup_static_optimisation_xml.html</loc>
   </url>
   <url>
     <loc>/reference/strength_scale_osim.html</loc>

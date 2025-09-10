@@ -23,6 +23,7 @@ defined by three non-colinear 3D points. The frame is based on:
 - X-axis: from marker_2 to marker_3
 - Y-axis: from marker_2 to marker_1
 - Z-axis: orthogonal to the XY-plane (via cross product)
+Note that x is re-computed via cross product of y and z to make the frame orthogonal
 }
 \examples{
 compute_frame_generic(c(1, 0, 0), c(0, 0, 0), c(0, 1, 0))
