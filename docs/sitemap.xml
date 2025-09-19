@@ -37,6 +37,12 @@
     <loc>/reference/analyse_joint_power_file.html</loc>
   </url>
   <url>
+    <loc>/reference/analyse_knee_compartment_forces.html</loc>
+  </url>
+  <url>
+    <loc>/reference/analyse_muscle_moment.html</loc>
+  </url>
+  <url>
     <loc>/reference/analyse_muscle_power.html</loc>
   </url>
   <url>
@@ -107,6 +113,9 @@
   </url>
   <url>
     <loc>/reference/compute_work.html</loc>
+  </url>
+  <url>
+    <loc>/reference/create_cross_mat_from_vector.html</loc>
   </url>
   <url>
     <loc>/reference/create_rotation_matrix.html</loc>
