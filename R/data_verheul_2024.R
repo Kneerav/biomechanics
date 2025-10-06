@@ -2,7 +2,7 @@
 
 #' Example Dataset: data_verheul_2024
 #'
-#' An example dataset from Verheul et al., 2024
+#' An example dataset from Verheul et al., 2024, released under https://www.apache.org/licenses/LICENSE-2.0
 #'
 #' @format A data frame with 422685 rows and 7 variables:
 #' \describe{
