@@ -4,8 +4,8 @@ authors:
 - family-names: "Nirav"
   given-names: "Maniar"
   orcid: "https://orcid.org/0000-0002-6180-6003"
-title: "biomechanics: v0.1"
-version: v0.1
+title: "biomechanics"
+version: 0.1
 doi: 10.5281/zenodo.17479739
 date-released: 2025-10-30
 url: "https://github.com/Kneerav/biomechanics"
