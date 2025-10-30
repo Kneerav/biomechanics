@@ -1,4 +1,4 @@
-[![DOI](https://zenodo.org/badge/838585702.svg)](https://doi.org/10.5281/zenodo.17479739)
+![DOI](https://zenodo.org/badge/838585702.svg)
 
 This package provides functions to perform biomechanics analysis in the R programming language. 
 
