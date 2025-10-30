@@ -25,3 +25,7 @@ Full documentation and vignettes are hosted here: https://kneerav.github.io/biom
 Some functions use the OpenSim api (https://simtk.org/projects/opensim). To enable these, we need to setup and appropriate python environment, install the opensim conda package, and use the `reticulate` package to access them in R. 
 
 Please see the setting up vignette(https://kneerav.github.io/biomechanics/articles/setting-up.html) for further information on how to do this. 
+
+## Citation
+
+Maniar, N. (2025). biomechanics (Version 0.1) [Computer software]. https://doi.org/10.5281/zenodo.17479739
