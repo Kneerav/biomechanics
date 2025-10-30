@@ -11,13 +11,14 @@
 #' @param model_reference Character. Path to the reference `.osim` model.
 #' @param model_scaled Character. Path to the scaled subject `.osim` model.
 #' @param model_file_out Character. Output path for the optimised `.osim` file.
+#' @param ref_rda Character. Path to `.rda` file storing or loading precomputed reference muscle quantities. If not existent, will be computed and written from the reference model.
+#' @param interval Integer. Number of intervals to use for coordinate sampling.
+#' @param oneLeg Logical. If `TRUE`, assumes only right-side muscles are present and mirrors optimised values to the left side.
+#' @param scale_fmax Logical. If `TRUE`, will scale the max isometric force based on regression equations from Handsfield et al. Requires input for `heightSub` and `massSub` arguments.
 #' @param heightSub Numeric. Subject height (m).
 #' @param massSub Numeric. Subject mass (kg).
 #' @param heightRef Numeric. Reference model height (m).
 #' @param massRef Numeric. Reference model mass (kg).
-#' @param ref_rda Character. Path to `.rda` file storing or loading precomputed reference muscle quantities.
-#' @param interval Integer. Number of intervals to use for coordinate sampling.
-#' @param oneLeg Logical. If `TRUE`, assumes only right-side muscles are present and mirrors optimised values to the left side.
 #' @param return_object Logical. If `TRUE`, returns the optimised `opensim::Model` object.
 #' @param write_file Logical. If `TRUE`, writes the optimised model to `model_file_out`.
 #'
@@ -34,13 +35,14 @@
 optimise_lmtu <- function(model_reference = "../TestData/lai_modified_3x_strength.osim",
                           model_scaled ="../TestData/Model_SCALED.osim",
                           model_file_out = "../TestData/Model_SCALED_opt.osim",
-                          heightSub = 1.68, #subject height (m)
-                          massSub = 75.337,   #subject mass (kg)
-                          heightRef = 1.68,  #reference model height (m)
-                          massRef = 75.337,  #reference model mass (kg)
                           ref_rda = "../TestData/test_mtu_optimiser/reference_values.rda",
                           interval  = 2,
                           oneLeg = TRUE,
+                          scale_fmax = FALSE,
+                          heightSub = 1.68,
+                          massSub = 75.337,
+                          heightRef = 1.68,
+                          massRef = 75.337,
                           return_object = TRUE,
                           write_file = TRUE
 ){
@@ -359,7 +361,12 @@ optimise_lmtu <- function(model_reference = "../TestData/lai_modified_3x_strengt
     #Scale the muscle parameters using volume and length scaling
     volumeScale <- (47.0 * massRef * heightRef + 1285.0) / (47.0 * massSub * heightSub + 1285.0)
     lengthScale <- x[1] / OFL
-    x <- c(x, (volumeScale / lengthScale) * MIF)
+
+    if(scale_fmax){
+      x <- c(x, (volumeScale / lengthScale) * MIF)} else {
+        x <- c(x, MIF)
+      }
+
 
     #Print results for this muscle
     cat(sprintf("\tOFL   : %.6f;  %.4f %%\n", OFL, 100 * (OFL - x[1]) / OFL))

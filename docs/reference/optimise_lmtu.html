@@ -56,13 +56,14 @@ Millard2012EquilibriumMuscle formulation.</p>
 <span>  model_reference <span class="op">=</span> <span class="st">"../TestData/lai_modified_3x_strength.osim"</span>,</span>
 <span>  model_scaled <span class="op">=</span> <span class="st">"../TestData/Model_SCALED.osim"</span>,</span>
 <span>  model_file_out <span class="op">=</span> <span class="st">"../TestData/Model_SCALED_opt.osim"</span>,</span>
+<span>  ref_rda <span class="op">=</span> <span class="st">"../TestData/test_mtu_optimiser/reference_values.rda"</span>,</span>
+<span>  interval <span class="op">=</span> <span class="fl">2</span>,</span>
+<span>  oneLeg <span class="op">=</span> <span class="cn">TRUE</span>,</span>
+<span>  scale_fmax <span class="op">=</span> <span class="cn">FALSE</span>,</span>
 <span>  heightSub <span class="op">=</span> <span class="fl">1.68</span>,</span>
 <span>  massSub <span class="op">=</span> <span class="fl">75.337</span>,</span>
 <span>  heightRef <span class="op">=</span> <span class="fl">1.68</span>,</span>
 <span>  massRef <span class="op">=</span> <span class="fl">75.337</span>,</span>
-<span>  ref_rda <span class="op">=</span> <span class="st">"../TestData/test_mtu_optimiser/reference_values.rda"</span>,</span>
-<span>  interval <span class="op">=</span> <span class="fl">2</span>,</span>
-<span>  oneLeg <span class="op">=</span> <span class="cn">TRUE</span>,</span>
 <span>  return_object <span class="op">=</span> <span class="cn">TRUE</span>,</span>
 <span>  write_file <span class="op">=</span> <span class="cn">TRUE</span></span>
 <span><span class="op">)</span></span></code></pre></div>
@@ -84,6 +85,22 @@ Millard2012EquilibriumMuscle formulation.</p>
 <dd><p>Character. Output path for the optimised `.osim` file.</p></dd>
 
 
+<dt id="arg-ref-rda">ref_rda<a class="anchor" aria-label="anchor" href="#arg-ref-rda"></a></dt>
+<dd><p>Character. Path to `.rda` file storing or loading precomputed reference muscle quantities. If not existent, will be computed and written from the reference model.</p></dd>
+
+
+<dt id="arg-interval">interval<a class="anchor" aria-label="anchor" href="#arg-interval"></a></dt>
+<dd><p>Integer. Number of intervals to use for coordinate sampling.</p></dd>
+
+
+<dt id="arg-oneleg">oneLeg<a class="anchor" aria-label="anchor" href="#arg-oneleg"></a></dt>
+<dd><p>Logical. If `TRUE`, assumes only right-side muscles are present and mirrors optimised values to the left side.</p></dd>
+
+
+<dt id="arg-scale-fmax">scale_fmax<a class="anchor" aria-label="anchor" href="#arg-scale-fmax"></a></dt>
+<dd><p>Logical. If `TRUE`, will scale the max isometric force based on regression equations from Handsfield et al. Requires input for `heightSub` and `massSub` arguments.</p></dd>
+
+
 <dt id="arg-heightsub">heightSub<a class="anchor" aria-label="anchor" href="#arg-heightsub"></a></dt>
 <dd><p>Numeric. Subject height (m).</p></dd>
 
@@ -98,18 +115,6 @@ Millard2012EquilibriumMuscle formulation.</p>
 
 <dt id="arg-massref">massRef<a class="anchor" aria-label="anchor" href="#arg-massref"></a></dt>
 <dd><p>Numeric. Reference model mass (kg).</p></dd>
-
-
-<dt id="arg-ref-rda">ref_rda<a class="anchor" aria-label="anchor" href="#arg-ref-rda"></a></dt>
-<dd><p>Character. Path to `.rda` file storing or loading precomputed reference muscle quantities.</p></dd>
-
-
-<dt id="arg-interval">interval<a class="anchor" aria-label="anchor" href="#arg-interval"></a></dt>
-<dd><p>Integer. Number of intervals to use for coordinate sampling.</p></dd>
-
-
-<dt id="arg-oneleg">oneLeg<a class="anchor" aria-label="anchor" href="#arg-oneleg"></a></dt>
-<dd><p>Logical. If `TRUE`, assumes only right-side muscles are present and mirrors optimised values to the left side.</p></dd>
 
 
 <dt id="arg-return-object">return_object<a class="anchor" aria-label="anchor" href="#arg-return-object"></a></dt>

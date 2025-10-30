@@ -4,21 +4,26 @@
 \alias{residual_analysis_curve}
 \title{Plot RMSE vs. Cutoff Frequency for Residual Analysis}
 \usage{
-residual_analysis_curve(data, sampling_rate, order, cutoff_range)
+residual_analysis_curve(
+  data,
+  sampling_rate,
+  order,
+  cutoff_vec = seq(1, 20, 0.1)
+)
 }
 \arguments{
-\item{data}{Numeric vector. The raw signal data to be filtered.}
+\item{data}{Numeric vector or matrix. The vector (or columns of matrix) contains the raw signal data to be filtered.}
 
 \item{sampling_rate}{Numeric. Sampling frequency of the data (Hz).}
 
 \item{order}{Integer. Order of the Butterworth filter.}
 
-\item{cutoff_range}{Numeric vector. Range of cutoff frequencies (Hz) to evaluate.}
+\item{cutoff_vec}{Numeric vector. Vector of cutoff frequencies (Hz) to evaluate.}
 }
 \value{
 A list containing:
 \item{rmses}{Numeric vector of RMSE values for each cutoff frequency.}
-\item{cutoff_range}{Numeric vector of cutoff frequencies used.}
+\item{cutoff_vec}{Numeric vector of cutoff frequencies used.}
 }
 \description{
 This function performs a residual analysis by filtering a signal

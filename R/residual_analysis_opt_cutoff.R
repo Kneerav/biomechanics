@@ -4,7 +4,7 @@
 #' from a residual analysis curve, based on the linear region of the RMSE–cutoff plot.
 #'
 #' @param rmses Numeric vector. RMSE values computed from `residual_analysis_curve()`.
-#' @param cutoff_range Numeric vector. Cutoff frequencies corresponding to each RMSE value.
+#' @param cutoff_vec Numeric vector. Cutoff frequencies corresponding to each RMSE value.
 #' @param linear_cutoff_region Numeric vector of length 2. The lower and upper cutoff limits (Hz)
 #' used for fitting the linear tail of the RMSE curve. Default is `c(15, 20)`.
 #'
@@ -20,11 +20,11 @@
 #'
 #' @importFrom ggplot2 ggplot geom_point aes geom_abline theme_classic xlab ylab
 #' @export
-residual_analysis_opt_cutoff <- function(rmses, cutoff_range, linear_cutoff_region = c(15,20)) {
+residual_analysis_opt_cutoff <- function(rmses, cutoff_vec, linear_cutoff_region = c(15,20)) {
 
   #check inputs
-  if (length(rmses) != length(cutoff_range)) {
-    stop("`rmses` and `cutoff_range` must be the same length.", call. = FALSE)
+  if (length(rmses) != length(cutoff_vec)) {
+    stop("`rmses` and `cutoff_vec` must be the same length.", call. = FALSE)
   }
 
   # Ensure that the linear_cutoff_region is valid
@@ -33,26 +33,26 @@ residual_analysis_opt_cutoff <- function(rmses, cutoff_range, linear_cutoff_regi
   }
 
   # Find the indices that correspond to the linear_cutoff_region
-  lower_idx <- which(cutoff_range >= linear_cutoff_region[1])[1]  # The first index where cutoff_range >= lower limit
-  upper_idx <- which(cutoff_range <= linear_cutoff_region[2])[length(which(cutoff_range <= linear_cutoff_region[2]))]  # The last index where cutoff_range <= upper limit
+  lower_idx <- which(cutoff_vec >= linear_cutoff_region[1])[1]  # The first index where cutoff_vec >= lower limit
+  upper_idx <- which(cutoff_vec <= linear_cutoff_region[2])[length(which(cutoff_vec <= linear_cutoff_region[2]))]  # The last index where cutoff_vec <= upper limit
 
   if (is.na(lower_idx) || is.na(upper_idx) || lower_idx >= upper_idx) {
     stop("Invalid `linear_cutoff_region`: no matching data points found.", call. = FALSE)
   }
 
   # Extract tail data from the specified range
-  tail_cutoff_range <- cutoff_range[lower_idx:upper_idx]
+  tail_cutoff_vec <- cutoff_vec[lower_idx:upper_idx]
   tail_rmses <- rmses[lower_idx:upper_idx]
 
   # Perform linear regression on the tail end of the RMSE plot
-  lm_fit <- lm(tail_rmses ~ tail_cutoff_range)
+  lm_fit <- lm(tail_rmses ~ tail_cutoff_vec)
 
   # Threshold line (y-intercept of the regression line)
   threshold <- coef(lm_fit)[1]
   slope <- coef(lm_fit)[2]
 
   g <- ggplot2::ggplot()+
-    ggplot2::geom_point(ggplot2::aes(cutoff_range, rmses), pch=21, fill="#024950")+
+    ggplot2::geom_point(ggplot2::aes(cutoff_vec, rmses), pch=21, fill="#024950")+
     ggplot2::theme_classic()+
     ggplot2::ylab("RMSE")+
     ggplot2::xlab("Cutoff frequency (Hz)")+
@@ -63,7 +63,7 @@ residual_analysis_opt_cutoff <- function(rmses, cutoff_range, linear_cutoff_regi
 
   # Find the first cutoff frequency where RMSE exceeds the threshold
   optimal_cutoff_idx <- max(which(rmses > threshold))
-  optimal_cutoff <- cutoff_range[optimal_cutoff_idx]
+  optimal_cutoff <- cutoff_vec[optimal_cutoff_idx]
 
   # Return the optimal cutoff frequency
   message("Estimated optimal cutoff frequency: ", round(optimal_cutoff, 2), " Hz")

@@ -8,13 +8,14 @@ optimise_lmtu(
   model_reference = "../TestData/lai_modified_3x_strength.osim",
   model_scaled = "../TestData/Model_SCALED.osim",
   model_file_out = "../TestData/Model_SCALED_opt.osim",
+  ref_rda = "../TestData/test_mtu_optimiser/reference_values.rda",
+  interval = 2,
+  oneLeg = TRUE,
+  scale_fmax = FALSE,
   heightSub = 1.68,
   massSub = 75.337,
   heightRef = 1.68,
   massRef = 75.337,
-  ref_rda = "../TestData/test_mtu_optimiser/reference_values.rda",
-  interval = 2,
-  oneLeg = TRUE,
   return_object = TRUE,
   write_file = TRUE
 )
@@ -26,6 +27,14 @@ optimise_lmtu(
 
 \item{model_file_out}{Character. Output path for the optimised `.osim` file.}
 
+\item{ref_rda}{Character. Path to `.rda` file storing or loading precomputed reference muscle quantities. If not existent, will be computed and written from the reference model.}
+
+\item{interval}{Integer. Number of intervals to use for coordinate sampling.}
+
+\item{oneLeg}{Logical. If `TRUE`, assumes only right-side muscles are present and mirrors optimised values to the left side.}
+
+\item{scale_fmax}{Logical. If `TRUE`, will scale the max isometric force based on regression equations from Handsfield et al. Requires input for `heightSub` and `massSub` arguments.}
+
 \item{heightSub}{Numeric. Subject height (m).}
 
 \item{massSub}{Numeric. Subject mass (kg).}
@@ -33,12 +42,6 @@ optimise_lmtu(
 \item{heightRef}{Numeric. Reference model height (m).}
 
 \item{massRef}{Numeric. Reference model mass (kg).}
-
-\item{ref_rda}{Character. Path to `.rda` file storing or loading precomputed reference muscle quantities.}
-
-\item{interval}{Integer. Number of intervals to use for coordinate sampling.}
-
-\item{oneLeg}{Logical. If `TRUE`, assumes only right-side muscles are present and mirrors optimised values to the left side.}
 
 \item{return_object}{Logical. If `TRUE`, returns the optimised `opensim::Model` object.}
 

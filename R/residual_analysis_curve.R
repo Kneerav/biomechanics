@@ -4,10 +4,10 @@
 #' across a range of cutoff frequencies and computing the root mean square error (RMSE)
 #' between the raw and filtered signals. The results are plotted as RMSE vs. cutoff frequency.
 #'
-#' @param data Numeric vector. The raw signal data to be filtered.
+#' @param data Numeric vector or matrix. The vector (or columns of matrix) contains the raw signal data to be filtered.
 #' @param sampling_rate Numeric. Sampling frequency of the data (Hz).
 #' @param order Integer. Order of the Butterworth filter.
-#' @param cutoff_range Numeric vector. Range of cutoff frequencies (Hz) to evaluate.
+#' @param cutoff_vec Numeric vector. Vector of cutoff frequencies (Hz) to evaluate.
 #'
 #' @details
 #' Residual analysis is used to determine an appropriate cutoff frequency
@@ -20,34 +20,60 @@
 #'
 #' @return A list containing:
 #' \item{rmses}{Numeric vector of RMSE values for each cutoff frequency.}
-#' \item{cutoff_range}{Numeric vector of cutoff frequencies used.}
+#' \item{cutoff_vec}{Numeric vector of cutoff frequencies used.}
 #'
 #' @importFrom ggplot2 ggplot geom_point aes theme_classic xlab ylab
+#' @importFrom signal butter filtfilt
 #' @export
-residual_analysis_curve <- function(data, sampling_rate, order, cutoff_range) {
-  rmses <- c()
-  filtered_signals <- list()
+residual_analysis_curve <- function(data, sampling_rate, order, cutoff_vec = seq(1,20,0.1)) {
+  rmses <- numeric(length(cutoff_vec))
+  filtered_signals <- vector("list", length(cutoff_vec))
 
-  # Loop through cutoff range to compute RMSE for each filtered signal
-  for (cutoff in cutoff_range) {
-    filtered_data <- butter_lowpass_filter(data, cutoff, sampling_rate, order)
-    rmse <- biomechanics::compute_rmse(data, filtered_data)
-    rmses <- c(rmses, rmse)
-    filtered_signals[[length(filtered_signals) + 1]] <- filtered_data
+  # Ensure data is a matrix
+  data <- as.matrix(data)
+
+  #function to filter
+  butter_lowpass_filter <- function(data, cutoff, sampling_rate, order) {
+    nyquist_freq <- 0.5 * sampling_rate
+    normal_cutoff <- cutoff / nyquist_freq
+    filter_coeffs <- signal::butter(order, normal_cutoff, type = "low", plane = "z")
+    filtered_data <- signal::filtfilt(filter_coeffs, data)
+    return(filtered_data)
   }
 
-  # Convert to a numeric vector
-  rmses <- unlist(rmses)
+  for (i in seq_along(cutoff_vec)) {
+    cutoff <- cutoff_vec[i]
+
+    # Filter each column
+    filtered_data <- apply(data, 2, function(col)
+      butter_lowpass_filter(col, cutoff, sampling_rate, order)
+    )
+
+    # # Compute RMSE for each column and sum them
+    # rmse_per_col <- apply(filtered_data, 2, function(col)
+    #   biomechanics::compute_rmse(data[, which(filtered_data[1, ] == col[1])], col)
+    # )
+
+    #Better (and safer): just loop to compute RMSE properly
+    rmse_per_col <- numeric(ncol(data))
+    for (j in seq_len(ncol(data))) {
+      rmse_per_col[j] <- biomechanics::compute_rmse(data[, j], filtered_data[, j])
+    }
+
+    rmses[i] <- sum(rmse_per_col)
+    filtered_signals[[i]] <- filtered_data
+  }
 
   # Plot RMSE vs. cutoff frequency
-  g <- ggplot2::ggplot()+
-    ggplot2::geom_point(ggplot2::aes(cutoff_range, rmses), pch=21, fill="#024950")+
-    ggplot2::theme_classic()+
-    ggplot2::ylab("RMSE")+
+  g <- ggplot2::ggplot(data.frame(cutoff = cutoff_vec, rmse = rmses)) +
+    ggplot2::geom_point(ggplot2::aes(x = cutoff, y = rmse), pch = 21, fill = "#024950") +
+    ggplot2::theme_classic() +
+    ggplot2::ylab("Summed RMSE") +
     ggplot2::xlab("Cutoff frequency (Hz)")
 
-  plot(g)
+  print(g)
 
-  # Return the RMS errors and the cutoff range for further processing
-  return(list(rmses = rmses, cutoff_range = cutoff_range))
+  # Return results
+  return(list(rmses = rmses, cutoff_vec = cutoff_vec))
 }
+

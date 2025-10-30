@@ -6,14 +6,14 @@
 \usage{
 residual_analysis_opt_cutoff(
   rmses,
-  cutoff_range,
+  cutoff_vec,
   linear_cutoff_region = c(15, 20)
 )
 }
 \arguments{
 \item{rmses}{Numeric vector. RMSE values computed from `residual_analysis_curve()`.}
 
-\item{cutoff_range}{Numeric vector. Cutoff frequencies corresponding to each RMSE value.}
+\item{cutoff_vec}{Numeric vector. Cutoff frequencies corresponding to each RMSE value.}
 
 \item{linear_cutoff_region}{Numeric vector of length 2. The lower and upper cutoff limits (Hz)
 used for fitting the linear tail of the RMSE curve. Default is `c(15, 20)`.}

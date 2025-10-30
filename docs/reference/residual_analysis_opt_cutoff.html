@@ -48,7 +48,7 @@ from a residual analysis curve, based on the linear region of the RMSE–cutoff 
     <h2 id="ref-usage">Usage<a class="anchor" aria-label="anchor" href="#ref-usage"></a></h2>
     <div class="sourceCode"><pre class="sourceCode r"><code><span><span class="fu">residual_analysis_opt_cutoff</span><span class="op">(</span></span>
 <span>  <span class="va">rmses</span>,</span>
-<span>  <span class="va">cutoff_range</span>,</span>
+<span>  <span class="va">cutoff_vec</span>,</span>
 <span>  linear_cutoff_region <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">15</span>, <span class="fl">20</span><span class="op">)</span></span>
 <span><span class="op">)</span></span></code></pre></div>
     </div>
@@ -61,7 +61,7 @@ from a residual analysis curve, based on the linear region of the RMSE–cutoff 
 <dd><p>Numeric vector. RMSE values computed from `residual_analysis_curve()`.</p></dd>
 
 
-<dt id="arg-cutoff-range">cutoff_range<a class="anchor" aria-label="anchor" href="#arg-cutoff-range"></a></dt>
+<dt id="arg-cutoff-vec">cutoff_vec<a class="anchor" aria-label="anchor" href="#arg-cutoff-vec"></a></dt>
 <dd><p>Numeric vector. Cutoff frequencies corresponding to each RMSE value.</p></dd>
 
 
