@@ -5,14 +5,14 @@
 \title{Calculate Strength Scale Factor Based on Height and Mass}
 \usage{
 compute_muscle_volume_scale_factor(
-  height,
+  height = NULL,
   mass,
   height_ref = 1.68,
   mass_ref = 75.337
 )
 }
 \arguments{
-\item{height}{A numeric value representing the height of the individual in meters.}
+\item{height}{A numeric value representing the height of the individual in meters. If NULL, only mass will be used.}
 
 \item{mass}{A numeric value representing the mass of the individual in kilograms.}
 
@@ -24,7 +24,10 @@ compute_muscle_volume_scale_factor(
 A numeric value representing the calculated strength scale factor.
 }
 \description{
-This function computes a muscle volume scale factor based on an individual's height 
+This function computes a muscle volume scale factor based on an individual's height
 and mass relative to reference values from Rajagopal et al. (2016) using regression equations
 from Handsfield et al.
+}
+\references{
+Handsfield GG, Meyer CH, Hart JM, Abel MF, Blemker SS. Relationships of 35 lower limb muscles to height and body mass quantified using MRI. J Biomech. 2014 Feb 7;47(3):631-8. doi: 10.1016/j.jbiomech.2013.12.002.
 }

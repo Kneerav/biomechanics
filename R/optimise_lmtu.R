@@ -359,7 +359,11 @@ optimise_lmtu <- function(model_reference = "../TestData/lai_modified_3x_strengt
     error <- sum((A %*% x - b)^2)  #sum of squared error
 
     #Scale the muscle parameters using volume and length scaling
+    if(is.null(height)){
+      volumeScale <- (91 * massRef + 588) / (91 * massSub + 588)
+    } else{
     volumeScale <- (47.0 * massRef * heightRef + 1285.0) / (47.0 * massSub * heightSub + 1285.0)
+    }
     lengthScale <- x[1] / OFL
 
     if(scale_fmax){

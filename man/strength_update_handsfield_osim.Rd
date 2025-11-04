@@ -30,7 +30,10 @@ strength_update_handsfield_osim(
 If `return_object` is TRUE, returns the modified OpenSim model object; otherwise, NULL.
 }
 \description{
-This function updates the muscle strength of a scaled OpenSim model based on a reference model using 
-the Handsfield scaling method. It calculates new muscle properties and can save the modified model 
+This function updates the muscle strength of a scaled OpenSim model based on a reference model using
+the Handsfield scaling method. It calculates new muscle properties and can save the modified model
 to a file or return the updated model object.
+}
+\references{
+Handsfield GG, Meyer CH, Hart JM, Abel MF, Blemker SS. Relationships of 35 lower limb muscles to height and body mass quantified using MRI. J Biomech. 2014 Feb 7;47(3):631-8. doi: 10.1016/j.jbiomech.2013.12.002.
 }

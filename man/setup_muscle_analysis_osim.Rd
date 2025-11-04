@@ -15,11 +15,13 @@ setup_muscle_analysis_osim(
   coordinates_file = NULL,
   controls_file = NULL,
   states_file = NULL,
+  lowpass_cutoff_frequency_for_coordinates = -1L,
+  external_loads_file = "external_loads.xml",
   in_degrees = TRUE,
   muscle_list = c("bflh_r", "bfsh_r", "semimem_r", "semiten_r"),
   moment_arm_coordinate_list = c("knee_angle_r", "hip_flexion_r"),
   compute_moments = TRUE,
-  step_interval = 1,
+  step_interval = 1L,
   setup_filename = "setup_ma.xml",
   write_file = FALSE,
   return_object = TRUE
@@ -46,6 +48,10 @@ setup_muscle_analysis_osim(
 
 \item{states_file}{A string specifying the path to the states file. Default is NULL.}
 
+\item{lowpass_cutoff_frequency_for_coordinates}{Numeric. Low-pass filter cutoff frequency for coordinate data (required).}
+
+\item{external_loads_file}{Character. Path to external loads file (default: `"external_loads.xml"`).}
+
 \item{in_degrees}{A logical indicating whether to use degrees for coordinate values. Default is TRUE.}
 
 \item{muscle_list}{A character vector specifying the list of muscles to include in the analysis. Default is `c("bflh_r", "bfsh_r", "semimem_r", "semiten_r")`.}
@@ -54,7 +60,7 @@ setup_muscle_analysis_osim(
 
 \item{compute_moments}{A logical indicating whether to compute muscle moment arms. Default is TRUE.}
 
-\item{step_interval}{A numeric value specifying the step interval for the analysis. Default is 1.}
+\item{step_interval}{An integer value specifying the step interval for the analysis. Default is `1L`.}
 
 \item{setup_filename}{A string specifying the filename for the XML setup file. Default is "setup_ma.xml".}
 
