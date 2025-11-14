@@ -1,4 +1,4 @@
-#' Compute Hip Joint Center using Harrington's of Bell and Brand's Method
+#' Compute Hip Joint Center using Harrington's or Bell and Brand's Method
 #'
 #' This function computes the right and left hip joint centers based on Harrington's formula.
 #'

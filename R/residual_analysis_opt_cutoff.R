@@ -57,7 +57,7 @@ residual_analysis_opt_cutoff <- function(rmses, cutoff_vec, linear_cutoff_region
     ggplot2::ylab("RMSE")+
     ggplot2::xlab("Cutoff frequency (Hz)")+
     ggplot2::geom_abline(intercept = threshold, slope = slope, col="grey", lty="51")+
-    ggplot2::geom_abline(intercept = threshold, col="grey", lty="51")
+    ggplot2::geom_hline(yintercept = threshold, col="grey", lty="51")
 
   plot(g)
 

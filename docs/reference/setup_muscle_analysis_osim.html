@@ -60,11 +60,13 @@ and return the analysis tool object for further use.</p>
 <span>  coordinates_file <span class="op">=</span> <span class="cn">NULL</span>,</span>
 <span>  controls_file <span class="op">=</span> <span class="cn">NULL</span>,</span>
 <span>  states_file <span class="op">=</span> <span class="cn">NULL</span>,</span>
+<span>  lowpass_cutoff_frequency_for_coordinates <span class="op">=</span> <span class="op">-</span><span class="fl">1L</span>,</span>
+<span>  external_loads_file <span class="op">=</span> <span class="st">"external_loads.xml"</span>,</span>
 <span>  in_degrees <span class="op">=</span> <span class="cn">TRUE</span>,</span>
 <span>  muscle_list <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"bflh_r"</span>, <span class="st">"bfsh_r"</span>, <span class="st">"semimem_r"</span>, <span class="st">"semiten_r"</span><span class="op">)</span>,</span>
 <span>  moment_arm_coordinate_list <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"knee_angle_r"</span>, <span class="st">"hip_flexion_r"</span><span class="op">)</span>,</span>
 <span>  compute_moments <span class="op">=</span> <span class="cn">TRUE</span>,</span>
-<span>  step_interval <span class="op">=</span> <span class="fl">1</span>,</span>
+<span>  step_interval <span class="op">=</span> <span class="fl">1L</span>,</span>
 <span>  setup_filename <span class="op">=</span> <span class="st">"setup_ma.xml"</span>,</span>
 <span>  write_file <span class="op">=</span> <span class="cn">FALSE</span>,</span>
 <span>  return_object <span class="op">=</span> <span class="cn">TRUE</span></span>
@@ -115,6 +117,14 @@ and return the analysis tool object for further use.</p>
 <dd><p>A string specifying the path to the states file. Default is NULL.</p></dd>
 
 
+<dt id="arg-lowpass-cutoff-frequency-for-coordinates">lowpass_cutoff_frequency_for_coordinates<a class="anchor" aria-label="anchor" href="#arg-lowpass-cutoff-frequency-for-coordinates"></a></dt>
+<dd><p>Numeric. Low-pass filter cutoff frequency for coordinate data (required).</p></dd>
+
+
+<dt id="arg-external-loads-file">external_loads_file<a class="anchor" aria-label="anchor" href="#arg-external-loads-file"></a></dt>
+<dd><p>Character. Path to external loads file (default: `"external_loads.xml"`).</p></dd>
+
+
 <dt id="arg-in-degrees">in_degrees<a class="anchor" aria-label="anchor" href="#arg-in-degrees"></a></dt>
 <dd><p>A logical indicating whether to use degrees for coordinate values. Default is TRUE.</p></dd>
 
@@ -132,7 +142,7 @@ and return the analysis tool object for further use.</p>
 
 
 <dt id="arg-step-interval">step_interval<a class="anchor" aria-label="anchor" href="#arg-step-interval"></a></dt>
-<dd><p>A numeric value specifying the step interval for the analysis. Default is 1.</p></dd>
+<dd><p>An integer value specifying the step interval for the analysis. Default is `1L`.</p></dd>
 
 
 <dt id="arg-setup-filename">setup_filename<a class="anchor" aria-label="anchor" href="#arg-setup-filename"></a></dt>

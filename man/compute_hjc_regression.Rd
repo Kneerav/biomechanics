@@ -2,7 +2,7 @@
 % Please edit documentation in R/compute_hjc_regression.R
 \name{compute_hjc_regression}
 \alias{compute_hjc_regression}
-\title{Compute Hip Joint Center using Harrington's of Bell and Brand's Method}
+\title{Compute Hip Joint Center using Harrington's or Bell and Brand's Method}
 \usage{
 compute_hjc_regression(
   data,
