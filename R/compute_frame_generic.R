@@ -1,6 +1,6 @@
 #' Compute a Reference Frame from Three Non-Colinear Markers
 #'
-#' Constructs a 4x4 transformation matrix representing a reference frame
+#' Constructs a 4x4 transformation matrix (local to global) representing a reference frame
 #' defined by three non-colinear 3D points. The frame is based on:
 #' - Origin: marker_2
 #' - X-axis: from marker_2 to marker_3
@@ -44,7 +44,7 @@ compute_frame_generic <- function(marker_1, marker_2, marker_3) {
   x_orth <- pracma::cross(y,z)
   x_orth <- x_orth / sqrt(sum(x_orth^2))   # Normalize
 
-  # Build 4x4 transformation matrix (rotation + origin)
+  # Build 4x4 transformation matrix (rotation + origin). Note this maps local to global i.e., R * v_local + 0 = v_global
   t_l <- rbind(
     cbind(x_orth, y, z, o),
     c(0, 0, 0, 1)

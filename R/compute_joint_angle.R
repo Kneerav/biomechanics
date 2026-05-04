@@ -29,7 +29,7 @@ compute_joint_angles <- function(rotation_frames) {
     frame_matrix <- rotation_frames[, , i]
 
     # Compute Euler angles
-    eular_angles <- RSpincalc::DCM2EA(frame_matrix, "zyx") %>%
+    eular_angles <- RSpincalc::DCM2EA(frame_matrix, "xyz") %>%
       pracma::rad2deg()
 
     # Adjust angles if needed (e.g., angles > 180 degrees)

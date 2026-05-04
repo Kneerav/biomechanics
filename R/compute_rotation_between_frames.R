@@ -1,6 +1,7 @@
 #' Compute Rotation Between Frames
 #'
 #' This function calculates the rotation matrix between corresponding frames in two 3D arrays.
+#' Note that this function assumes the input frames represent a global to local transformation.
 #'
 #' @param parent A 3-dimensional array where each slice represents a frame of rotation matrices.
 #' @param child A 3-dimensional array of the same dimensions as `parent`, representing another set of rotation matrices.

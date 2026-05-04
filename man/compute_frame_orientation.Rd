@@ -23,7 +23,7 @@ compute_frame_orientation(v1, v2, recompute, frameorder)
 A 3-dimensional array where each slice corresponds to a 3x3 orientation matrix.
 }
 \description{
-This function computes frame orientation based on two input vectors.
+This function computes frame orientation (global to local) based on two input vectors.
 }
 \examples{
 v1 <- matrix(c(1, 0, 0, 0, 1, 0, 0, 0, 1), nrow = 3, byrow = TRUE)

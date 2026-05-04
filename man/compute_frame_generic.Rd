@@ -17,7 +17,7 @@ compute_frame_generic(marker_1, marker_2, marker_3)
 A 4x4 numeric matrix representing a homogeneous transformation matrix.
 }
 \description{
-Constructs a 4x4 transformation matrix representing a reference frame
+Constructs a 4x4 transformation matrix (local to global) representing a reference frame
 defined by three non-colinear 3D points. The frame is based on:
 - Origin: marker_2
 - X-axis: from marker_2 to marker_3

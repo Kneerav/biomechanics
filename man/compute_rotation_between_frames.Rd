@@ -16,4 +16,5 @@ A 3-dimensional array of the same dimensions as `parent` and `child`, where each
 }
 \description{
 This function calculates the rotation matrix between corresponding frames in two 3D arrays.
+Note that this function assumes the input frames represent a global to local transformation.
 }

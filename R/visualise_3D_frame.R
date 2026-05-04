@@ -27,8 +27,8 @@ visualise_3D_frame <- function(p, reference_frame, origin, scale_factor = 100) {
   p <- p %>%
     add_trace(
       x = c(origin[1], origin[1] + scale_factor * e1[1]),
-      y = c(origin[3], origin[3] + scale_factor * e1[3]),
-      z = c(origin[2], origin[2] + scale_factor * e1[2]),
+      y = c(origin[3], origin[3] + scale_factor * -e1[3]),
+      z = c(origin[2], origin[2] + scale_factor * -e1[2]),
       type = 'scatter3d',
       mode = 'lines',
       line = list(color = 'red', width = 4),
@@ -36,8 +36,8 @@ visualise_3D_frame <- function(p, reference_frame, origin, scale_factor = 100) {
       name = 'X-axis'
     ) %>%
     add_trace(
-      x = c(origin[1], origin[1] + scale_factor * e2[1]),
-      y = c(origin[3], origin[3] + scale_factor * e2[3]),
+      x = c(origin[1], origin[1] + scale_factor * -e2[1]),
+      y = c(origin[3], origin[3] + scale_factor * -e2[3]),
       z = c(origin[2], origin[2] + scale_factor * e2[2]),
       type = 'scatter3d',
       mode = 'lines',
@@ -46,9 +46,9 @@ visualise_3D_frame <- function(p, reference_frame, origin, scale_factor = 100) {
       name = 'Y-axis'
     ) %>%
     add_trace(
-      x = c(origin[1], origin[1] + scale_factor * e3[1]),
+      x = c(origin[1], origin[1] + scale_factor * -e3[1]),
       y = c(origin[3], origin[3] + scale_factor * e3[3]),
-      z = c(origin[2], origin[2] + scale_factor * e3[2]),
+      z = c(origin[2], origin[2] + scale_factor * -e3[2]),
       type = 'scatter3d',
       mode = 'lines',
       line = list(color = 'blue', width = 4),

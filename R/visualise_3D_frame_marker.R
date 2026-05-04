@@ -48,7 +48,7 @@ visualize_3D_marker_frame_position <- function(data, selected_frame, reference_f
                type = "scatter3d",
                mode = "markers",
                #text = ~Marker[plot_data$Axis == "X"],
-               marker = list(size = 3, color = "dodgerblue4"),
+               marker = list(size = 3, color = "#024950"),
                hoverinfo = 'text+x+z+y') %>%
     layout(scene = list(
       xaxis = list(title = 'Anterior-Posterior', range = c(axis_min, axis_max)),
@@ -79,16 +79,16 @@ visualize_3D_marker_frame_position <- function(data, selected_frame, reference_f
     p <- p %>%
       add_trace(
         x = c(origin[1], origin[1] + scale_factor * e1[1]),
-        y = c(origin[3], origin[3] + scale_factor * e1[3]),
-        z = c(origin[2], origin[2] + scale_factor * e1[2]),
+        y = c(origin[3], origin[3] + scale_factor * -e1[3]),
+        z = c(origin[2], origin[2] + scale_factor * -e1[2]),
         type = 'scatter3d',
         mode = 'lines',
         line = list(color = 'red', width = 4),
         name = 'X-axis'
       ) %>%
       add_trace(
-        x = c(origin[1], origin[1] + scale_factor *e2[1]),
-        y = c(origin[3], origin[3] + scale_factor *e2[3]),
+        x = c(origin[1], origin[1] + scale_factor *-e2[1]),
+        y = c(origin[3], origin[3] + scale_factor *-e2[3]),
         z = c(origin[2], origin[2] + scale_factor *e2[2]),
         type = 'scatter3d',
         mode = 'lines',
@@ -96,9 +96,9 @@ visualize_3D_marker_frame_position <- function(data, selected_frame, reference_f
         name = 'Y-axis'
       ) %>%
       add_trace(
-        x = c(origin[1], origin[1] + scale_factor *e3[1]),
+        x = c(origin[1], origin[1] + scale_factor *-e3[1]),
         y = c(origin[3], origin[3] + scale_factor *e3[3]),
-        z = c(origin[2], origin[2] + scale_factor *e3[2]),
+        z = c(origin[2], origin[2] + scale_factor *-e3[2]),
         type = 'scatter3d',
         mode = 'lines',
         line = list(color = 'blue', width = 4),

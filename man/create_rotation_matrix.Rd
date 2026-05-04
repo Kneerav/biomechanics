@@ -16,7 +16,9 @@ A 3x3 numeric matrix representing the rotation.
 }
 \description{
 Generates a 3x3 rotation matrix for rotating points in 3D space
-around the x, y, or z axis by a specified angle in degrees.
+around the x, y, or z axis by a specified angle in degrees. 
+Note that the result are standard active rotation matrices, meaning 
+they rotate vectors within a fixed frame using the right-hand rule
 }
 \examples{
 create_rotation_matrix(90, "z")

@@ -1,8 +1,10 @@
 #' Create a 3D Rotation Matrix
 #'
 #' Generates a 3x3 rotation matrix for rotating points in 3D space
-#' around the x, y, or z axis by a specified angle in degrees.
-#'
+#' around the x, y, or z axis by a specified angle in degrees. 
+#' Note that the result are standard active rotation matrices, meaning 
+#' they rotate vectors within a fixed frame using the right-hand rule
+#' 
 #' @param angle_deg Numeric. The rotation angle in degrees.
 #' @param axis Character. The axis of rotation: "x", "y", or "z".
 #'
