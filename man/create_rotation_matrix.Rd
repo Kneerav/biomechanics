@@ -4,23 +4,28 @@
 \alias{create_rotation_matrix}
 \title{Create a 3D Rotation Matrix}
 \usage{
-create_rotation_matrix(angle_deg, axis)
+create_rotation_matrix(angle, axis, in_degrees = TRUE)
 }
 \arguments{
-\item{angle_deg}{Numeric. The rotation angle in degrees.}
+\item{angle}{Numeric. The rotation angle.}
 
 \item{axis}{Character. The axis of rotation: "x", "y", or "z".}
+
+\item{in_degrees}{Logical. If TRUE (default), the input angle is assumed
+to be in degrees and is converted to radians. If FALSE, the angle is
+assumed to already be in radians.}
 }
 \value{
 A 3x3 numeric matrix representing the rotation.
 }
 \description{
 Generates a 3x3 rotation matrix for rotating points in 3D space
-around the x, y, or z axis by a specified angle in degrees. 
-Note that the result are standard active rotation matrices, meaning 
-they rotate vectors within a fixed frame using the right-hand rule
+around the x, y, or z axis by a specified angle.
+Note that the result are standard active rotation matrices, meaning
+they rotate vectors within a fixed frame using the right-hand rule.
 }
 \examples{
-create_rotation_matrix(90, "z")
+create_rotation_matrix(90, "z")                # degrees (default)
+create_rotation_matrix(pi/2, "z", FALSE)       # radians
 
 }

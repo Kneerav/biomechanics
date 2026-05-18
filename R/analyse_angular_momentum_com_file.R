@@ -105,16 +105,23 @@ analyse_angular_momentum_com_file = function(model_file = "Model_SCALED.osim",
       r_3 = apply(r_i %>% slice(nsamp), 2, max)
 
       #get rotation matrix. Replaced scipy dependency
-      #rot_i = scipy$spatial$transform$Rotation$from_rotvec(theta3, degrees=FALSE)
-      rot_i = create_rotation_matrix_from_vector(theta3, in_degrees=FALSE)
-      rotmat = rot_i
+      #rot_i = scipy$spatial$transform$Rotation$from_rotvec(theta3, degrees=FALSE) is axis angle (wrong for osim)
+      #rot_i = create_rotation_matrix_from_vector(theta3, in_degrees=FALSE)
+      #rotmat = rot_i
 
-      # transform I_i into inertial coords via R * I_i * R_inv
-      I_inertial = rotmat %*% (I_i %*% pracma::inv(rotmat))
+      #create rotation matrix, theta should be in radians
+      rot_x = create_rotation_matrix(theta3[1], "x", in_degrees = F)
+      rot_y = create_rotation_matrix(theta3[2], "y", in_degrees = F)
+      rot_z = create_rotation_matrix(theta3[3], "z", in_degrees = F)
+      rot_i <-rot_z %*% rot_y %*% rot_x
+
+      # transform I_i into inertial coords via R * I_i * R_inv or t(R) for efficiency??
+      #  I_inertial = rotmat %*% (I_i %*% pracma::inv(rotmat))
+      I_inertial = rot_i %*% I_i %*% t(rot_i)
 
       # Instantaneous segmental angular momentum relative to centre-of mass:
-      #   L_seg_t = r x mv + Iw
-      L_seg_t = pracma::cross(r_3, mass_i * v_3) + t(I_inertial %*% omega3)
+      #   L_seg_t = r x mv + Iw (inertial was transposed, but that was unneccesary and wrong)
+      L_seg_t = pracma::cross(r_3, mass_i * v_3) + I_inertial %*% omega3
 
       # ensure accurate naming
       colnames(body_temp) <- c(paste0(body_i_name, "_x"),paste0(body_i_name, "_y"),paste0(body_i_name, "_z"))

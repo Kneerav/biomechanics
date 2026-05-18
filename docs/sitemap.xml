@@ -22,6 +22,7 @@
 <url><loc>/reference/compute_cutoff_correction_lowpass.html</loc></url>
 <url><loc>/reference/compute_derivative.html</loc></url>
 <url><loc>/reference/compute_derivative_df.html</loc></url>
+<url><loc>/reference/compute_frame_angular_velocity.html</loc></url>
 <url><loc>/reference/compute_frame_generic.html</loc></url>
 <url><loc>/reference/compute_frame_orientation.html</loc></url>
 <url><loc>/reference/compute_hjc_regression.html</loc></url>
