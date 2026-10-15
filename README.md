@@ -6,7 +6,7 @@ This package provides functions to perform biomechanics analysis in the R progra
 
 Basic installation can be done via the `install_github()` function from the `remotes` package.
 
-```{r}
+``` r
 
 #install the package
 remotes::install_github("Kneerav/biomechanics")
@@ -14,7 +14,7 @@ remotes::install_github("Kneerav/biomechanics")
 
 Once installed, you can load the library and use the various functions.
 
-```{r}
+``` r
 library(biomechanics)
 ```
 

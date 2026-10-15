@@ -1,0 +1,46 @@
+# Calculate Strength Scale Factor Based on Height and Mass
+
+This function computes a muscle volume scale factor based on an
+individual's height and mass relative to reference values from Rajagopal
+et al. (2016) using regression equations from Handsfield et al.
+
+## Usage
+
+``` r
+compute_muscle_volume_scale_factor(
+  height = NULL,
+  mass,
+  height_ref = 1.68,
+  mass_ref = 75.337
+)
+```
+
+## Arguments
+
+- height:
+
+  A numeric value representing the height of the individual in meters.
+  If NULL, only mass will be used.
+
+- mass:
+
+  A numeric value representing the mass of the individual in kilograms.
+
+- height_ref:
+
+  A numeric value for the reference height in meters (default is 1.68).
+
+- mass_ref:
+
+  A numeric value for the reference mass in kilograms (default is
+  75.337).
+
+## Value
+
+A numeric value representing the calculated strength scale factor.
+
+## References
+
+Handsfield GG, Meyer CH, Hart JM, Abel MF, Blemker SS. Relationships of
+35 lower limb muscles to height and body mass quantified using MRI. J
+Biomech. 2014 Feb 7;47(3):631-8. doi: 10.1016/j.jbiomech.2013.12.002.

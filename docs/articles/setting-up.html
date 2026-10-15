@@ -103,7 +103,7 @@ instance it will be called “opensim_scripting_452_311” with python
 version 3.11, indicating OpenSim v4.5.2 and python version 3.11.</p>
 <p>One way to achieve this is to open anaconda prompt and type the
 following:</p>
-<div class="sourceCode" id="cb3"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>conda create <span class="op">-</span>n <span class="st">"opensim_scripting_452_311"</span> python<span class="op">=</span><span class="fl">3.11</span></span></code></pre></div>
+<div class="sourceCode" id="cb3"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" tabindex="-1"></a>conda create <span class="op">-</span>n <span class="st">"opensim_scripting_452_311"</span> python<span class="op">=</span><span class="fl">3.11</span></span></code></pre></div>
 <p>Alternatively, you can create the same environment by opening
 anaconda navigator and create a new environment called
 “opensim_scripting_452_311” with python version 3.11.</p>
@@ -111,25 +111,25 @@ anaconda navigator and create a new environment called
 below to activate your new environment, install the opensim package. To
 install a specific version (v4.5.2 is working well at the time of
 writing this), we’d use the following:</p>
-<div class="sourceCode" id="cb4"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>conda activate opensim_scripting_452_311</span>
-<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>conda install opensim<span class="op">-</span>org::opensim<span class="op">==</span><span class="fl">4.5.2</span></span></code></pre></div>
+<div class="sourceCode" id="cb4"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" tabindex="-1"></a>conda activate opensim_scripting_452_311</span>
+<span id="cb4-2"><a href="#cb4-2" tabindex="-1"></a>conda install opensim<span class="op">-</span>org::opensim<span class="op">==</span><span class="fl">4.5.2</span></span></code></pre></div>
 <p>To install the latest version (which should be indicated here: <a href="https://anaconda.org/opensim-org/opensim" class="external-link uri">https://anaconda.org/opensim-org/opensim</a>), do the
 following instead:</p>
-<div class="sourceCode" id="cb5"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>conda activate opensim_scripting_452_311</span>
-<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>conda install opensim<span class="op">-</span>org::opensim</span></code></pre></div>
+<div class="sourceCode" id="cb5"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" tabindex="-1"></a>conda activate opensim_scripting_452_311</span>
+<span id="cb5-2"><a href="#cb5-2" tabindex="-1"></a>conda install opensim<span class="op">-</span>org::opensim</span></code></pre></div>
 <p>Then switch to the python interpreter to test your installation.</p>
-<div class="sourceCode" id="cb6"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>python</span>
-<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> opensim <span class="im">as</span> osim</span></code></pre></div>
+<div class="sourceCode" id="cb6"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" tabindex="-1"></a>python</span>
+<span id="cb6-2"><a href="#cb6-2" tabindex="-1"></a><span class="im">import</span> opensim <span class="im">as</span> osim</span></code></pre></div>
 <p>If you have no errors, you are ready to roll. If you have errors, a
 common issue solution I have observed is we sometimes need to downgrade
 the OpenSSL package to 1.1.1w (which is most easily achieved in the
 anaconda navigator).</p>
 <p>Assuming the install works, you might as well install the additional
 python packages we might need as follows.</p>
-<div class="sourceCode" id="cb7"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>exit() <span class="co">#to leave the python interpretor</span></span>
-<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>conda install <span class="op">-</span>c conda<span class="op">-</span>forge btk <span class="co">#btk has numerous tools for working with c3d files</span></span>
-<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a>conda install scipy<span class="op">=</span><span class="fl">1.16</span> <span class="co">#for signal processing </span></span>
-<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a>pip install spm1d <span class="co">#statistical parametric mapping</span></span></code></pre></div>
+<div class="sourceCode" id="cb7"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" tabindex="-1"></a>exit() <span class="co">#to leave the python interpretor</span></span>
+<span id="cb7-2"><a href="#cb7-2" tabindex="-1"></a>conda install <span class="op">-</span>c conda<span class="op">-</span>forge btk <span class="co">#btk has numerous tools for working with c3d files</span></span>
+<span id="cb7-3"><a href="#cb7-3" tabindex="-1"></a>conda install scipy<span class="op">=</span><span class="fl">1.16</span> <span class="co">#for signal processing </span></span>
+<span id="cb7-4"><a href="#cb7-4" tabindex="-1"></a>pip install spm1d <span class="co">#statistical parametric mapping</span></span></code></pre></div>
 <p>Note that a specific version of <code>scipy</code> was specified to
 align with OpenSim 4.5.2, since later versions are not compatible with
 the specific version of <code>numpy</code> needed for the specific
@@ -158,16 +158,16 @@ OpenSim-python api in a new R session (except
 </h2>
 <p>There are plenty of other R packages worth installing. Here is a few
 basics:</p>
-<div class="sourceCode" id="cb9"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a><span class="fu">install.packages</span>(</span>
-<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">c</span>(<span class="st">"tidyverse"</span>, <span class="co">#you probably know why</span></span>
-<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a>    <span class="st">"readxl"</span> <span class="co">#read excel files</span></span>
-<span id="cb9-5"><a href="#cb9-5" aria-hidden="true" tabindex="-1"></a>    <span class="st">"pracma"</span>, <span class="co">#maths stuff</span></span>
-<span id="cb9-6"><a href="#cb9-6" aria-hidden="true" tabindex="-1"></a>    <span class="st">"signal"</span>, <span class="co">#for signal processing</span></span>
-<span id="cb9-7"><a href="#cb9-7" aria-hidden="true" tabindex="-1"></a>    <span class="st">"caroline"</span>, <span class="co">#some useful utility functions</span></span>
-<span id="cb9-8"><a href="#cb9-8" aria-hidden="true" tabindex="-1"></a>    <span class="st">"fda"</span>, <span class="co">#functional data analysis</span></span>
-<span id="cb9-9"><a href="#cb9-9" aria-hidden="true" tabindex="-1"></a>    )</span>
-<span id="cb9-10"><a href="#cb9-10" aria-hidden="true" tabindex="-1"></a>  ) </span></code></pre></div>
+<div class="sourceCode" id="cb9"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" tabindex="-1"></a></span>
+<span id="cb9-2"><a href="#cb9-2" tabindex="-1"></a><span class="fu">install.packages</span>(</span>
+<span id="cb9-3"><a href="#cb9-3" tabindex="-1"></a>  <span class="fu">c</span>(<span class="st">"tidyverse"</span>, <span class="co">#you probably know why</span></span>
+<span id="cb9-4"><a href="#cb9-4" tabindex="-1"></a>    <span class="st">"readxl"</span> <span class="co">#read excel files</span></span>
+<span id="cb9-5"><a href="#cb9-5" tabindex="-1"></a>    <span class="st">"pracma"</span>, <span class="co">#maths stuff</span></span>
+<span id="cb9-6"><a href="#cb9-6" tabindex="-1"></a>    <span class="st">"signal"</span>, <span class="co">#for signal processing</span></span>
+<span id="cb9-7"><a href="#cb9-7" tabindex="-1"></a>    <span class="st">"caroline"</span>, <span class="co">#some useful utility functions</span></span>
+<span id="cb9-8"><a href="#cb9-8" tabindex="-1"></a>    <span class="st">"fda"</span>, <span class="co">#functional data analysis</span></span>
+<span id="cb9-9"><a href="#cb9-9" tabindex="-1"></a>    )</span>
+<span id="cb9-10"><a href="#cb9-10" tabindex="-1"></a>  ) </span></code></pre></div>
 <p>Note that <code>pracma</code> and <code>signal</code> are already
 dependencies for the <code>biomechanics</code> package.</p>
 </div>
@@ -197,7 +197,7 @@ other files <a href="https://notepad-plus-plus.org/" class="external-link uri">h
 </div>
 
 <div class="pkgdown-footer-right">
-  <p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.1.3.</p>
+  <p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.2.1.</p>
 </div>
 
     </footer>

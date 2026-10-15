@@ -1,0 +1,58 @@
+# Filter Markers with Padding to Avoid Artifacts
+
+This function filters the marker data using a low-pass Butterworth
+filter with padding at the start and end of the data to avoid artifacts.
+
+## Usage
+
+``` r
+filter_lowpass_pad_df(
+  data,
+  time_col = "Time",
+  exclude_cols = c(1, 2),
+  cut_off = 6,
+  sample_rate = 200,
+  order = 2,
+  pad_time = 0.5
+)
+```
+
+## Arguments
+
+- data:
+
+  A data frame containing marker data to be filtered.
+
+- time_col:
+
+  A string indicating the name of the column containing the time vector.
+
+- exclude_cols:
+
+  A vector of column indices (or names) to exclude from filtering.
+  Usually 1 and 2 to remove Time and Frame.
+
+- cut_off:
+
+  Numeric. The cut-off frequency for the low-pass filter in Hz.
+
+- sample_rate:
+
+  Numeric. The sample rate of the data in Hz.
+
+- order:
+
+  Numeric. The order of the Butterworth filter.
+
+- pad_time:
+
+  Numeric. The time length to pad the data at the start and end.
+
+- use_spline_padding:
+
+  Logical. Whether to use spline interpolation for padding (TRUE) or
+  replicate the first/last rows (FALSE). Default is FALSE.
+
+## Value
+
+A data frame with the filtered marker data, with padding removed.

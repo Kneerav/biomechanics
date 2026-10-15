@@ -41,6 +41,7 @@ export(filter_lowpass_pad_df)
 export(get_EMG_c3d_osim)
 export(get_analog_c3d_osim)
 export(get_hex_colors)
+export(muscle_force_direction)
 export(optimise_lmtu)
 export(osim_run_cmd)
 export(osim_viz_model_cmd)
@@ -102,44 +103,63 @@ import(scales)
 import(stringr)
 import(tidyr)
 importFrom(caroline,write.delim)
-importFrom(dplyr,"%>%")
-importFrom(dplyr,bind_cols)
-importFrom(dplyr,bind_rows)
-importFrom(dplyr,contains)
-importFrom(dplyr,mutate)
-importFrom(dplyr,select)
-importFrom(dplyr,slice)
-importFrom(ggplot2,aes)
-importFrom(ggplot2,geom_abline)
-importFrom(ggplot2,geom_point)
-importFrom(ggplot2,ggplot)
-importFrom(ggplot2,theme_classic)
-importFrom(ggplot2,xlab)
-importFrom(ggplot2,ylab)
+importFrom(dplyr,
+  "%>%",
+  bind_cols,
+  bind_rows,
+  contains,
+  mutate,
+  select,
+  slice
+)
+importFrom(ggplot2,
+  aes,
+  geom_abline,
+  geom_point,
+  ggplot,
+  theme_classic,
+  xlab,
+  ylab
+)
 importFrom(magrittr,"%>%")
 importFrom(nnls,nnls)
 importFrom(plotly,add_trace)
-importFrom(pracma,Diag)
-importFrom(pracma,Rank)
-importFrom(pracma,cross)
-importFrom(pracma,deg2rad)
-importFrom(pracma,interp1)
-importFrom(pracma,inv)
-importFrom(pracma,pinv)
-importFrom(pracma,rad2deg)
-importFrom(pracma,trapz)
-importFrom(purrr,map_df)
-importFrom(purrr,pmap)
+importFrom(pracma,
+  Diag,
+  Rank,
+  cross,
+  deg2rad,
+  interp1,
+  inv,
+  pinv,
+  rad2deg,
+  trapz
+)
+importFrom(purrr,
+  map_df,
+  pmap
+)
 importFrom(readr,read_lines)
-importFrom(reticulate,import)
+importFrom(reticulate,
+  import,
+  py_has_attr,
+  py_is_null_xptr,
+  py_module_available
+)
 importFrom(seewave,spec)
-importFrom(signal,butter)
-importFrom(signal,filtfilt)
-importFrom(stats,median)
-importFrom(stats,na.omit)
-importFrom(stats,sd)
-importFrom(stats,smooth.spline)
-importFrom(stringr,str_detect)
-importFrom(stringr,str_replace)
-importFrom(stringr,str_replace_all)
+importFrom(signal,
+  butter,
+  filtfilt
+)
+importFrom(stats,
+  median,
+  na.omit,
+  sd,
+  smooth.spline
+)
+importFrom(stringr,
+  str_detect,
+  str_replace,
+  str_replace_all
+)
 importFrom(utils,read.delim)

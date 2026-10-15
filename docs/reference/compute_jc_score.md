@@ -1,0 +1,57 @@
+# Compute Joint Centre Using the SCoRE Method
+
+Computes the joint centre using the Symmetrical Centre of Rotation
+Estimation (SCoRE) method based on time series of marker positions from
+proximal and distal segments.
+
+## Usage
+
+``` r
+compute_jc_score(
+  data,
+  marker_names_prox,
+  marker_names_dist,
+  joint_centre_name,
+  return_items = c("all", "local_distal", "local_proximal", "global", "appended")
+)
+```
+
+## Arguments
+
+- data:
+
+  A data frame with time-series marker data. Columns must be named in
+  the format \`marker_X\`, \`marker_Y\`, \`marker_Z\`.
+
+- marker_names_prox:
+
+  A character vector of 3 marker names defining the proximal segment.
+
+- marker_names_dist:
+
+  A character vector of 3 marker names defining the distal segment.
+
+- joint_centre_name:
+
+  A character string used to name the resulting joint centre columns.
+
+- return_items:
+
+  Character string specifying what to return. One of \`"all"\`,
+  \`"local_distal"\`, \`"local_proximal"\`, \`"global"\`, or
+  \`"appended"\`.
+
+## Value
+
+Depending on \`return_items\`: \* \`"all"\` – a list with full data
+frame, local distal, and local proximal coordinates. \*
+\`"local_distal"\` or \`"local_proximal"\` – a 3x1 numeric matrix. \*
+\`"global"\` – a data frame with joint centre coordinates in global
+frame. \* \`"appended"\` – original data with global joint centre
+columns appended.
+
+## References
+
+Ehrig RM, Taylor WR, Duda GN, Heller MO (2006). A survey of formal
+methods for determining the centre of rotation of joints. *Journal of
+Biomechanics*, 39(15):2798–2809.

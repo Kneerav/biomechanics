@@ -1,0 +1,48 @@
+# Determine Optimal Filter Cutoff from Residual Analysis
+
+This function estimates the optimal low-pass filter cutoff frequency
+from a residual analysis curve, based on the linear region of the
+RMSE–cutoff plot.
+
+## Usage
+
+``` r
+residual_analysis_opt_cutoff(
+  rmses,
+  cutoff_vec,
+  linear_cutoff_region = c(15, 20)
+)
+```
+
+## Arguments
+
+- rmses:
+
+  Numeric vector. RMSE values computed from
+  \`residual_analysis_curve()\`.
+
+- cutoff_vec:
+
+  Numeric vector. Cutoff frequencies corresponding to each RMSE value.
+
+- linear_cutoff_region:
+
+  Numeric vector of length 2. The lower and upper cutoff limits (Hz)
+  used for fitting the linear tail of the RMSE curve. Default is \`c(15,
+  20)\`.
+
+## Value
+
+Numeric value representing the estimated optimal cutoff frequency (Hz).
+
+## Details
+
+A linear regression is fitted to the high-frequency “tail” of the RMSE
+curve. The y-intercept of this regression line defines the residual
+threshold. The optimal cutoff frequency is then the last frequency
+before RMSE exceeds this threshold.
+
+## References
+
+Winter, David A. Biomechanics and motor control of human movement. John
+Wiley & Sons, 2009.
